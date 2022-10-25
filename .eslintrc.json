@@ -38,7 +38,7 @@
         "no-var": "error",
         "no-unreachable": "warn",
         "no-shadow": "warn",
-        "no-console": "warn",
+        "no-console": ["error", { "allow": ["warn", "error"] }],
         "arrow-parens": "warn",
         "no-debugger": "error",
         "no-mixed-operators": "error"
