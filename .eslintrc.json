@@ -34,7 +34,14 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-var": "error",
+        "no-unreachable": "warn",
+        "no-shadow": "warn",
+        "no-console": "warn",
+        "arrow-parens": "warn",
+        "no-debugger": "error",
+        "no-mixed-operators": "error"
       }
     },
     {
