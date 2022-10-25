@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import "src/styles/core/theme";
+
+.navbar-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 16px;
+  background: map.get(map.get(mat.get-color-config($theme), 'primary'), 'main');
+}
