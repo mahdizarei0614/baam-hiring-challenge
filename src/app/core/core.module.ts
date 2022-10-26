@@ -15,6 +15,7 @@ import {LoadingService} from "./services/loading.service";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {ApiUrlInterceptor} from "./interceptors/api-url.interceptor";
 import {ApiKeyInterceptor} from "./interceptors/api-key.interceptor";
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {ApiKeyInterceptor} from "./interceptors/api-key.interceptor";
     {provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true},
     ThemeService,
-    LoadingService
+    LoadingService,
+    AuthService
   ]
 })
 export class CoreModule {
