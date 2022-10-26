@@ -5,12 +5,17 @@ import {LangSwitchComponent} from "./components/lang-switch/lang-switch.componen
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
-
+import {MatMenuModule} from "@angular/material/menu";
+import {MatIconModule} from "@angular/material/icon";
+import {ThemeSwitchComponent} from './components/theme-switch/theme-switch.component';
+import {ThemeService} from "./services/theme.service";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
     LangSwitchComponent,
-    NavbarComponent
+    NavbarComponent,
+    ThemeSwitchComponent
   ],
   exports: [
     LangSwitchComponent,
@@ -20,7 +25,13 @@ import {MatButtonModule} from "@angular/material/button";
     CommonModule,
     I18nModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatSlideToggleModule
+  ],
+  providers: [
+    ThemeService
   ]
 })
 export class CoreModule {
