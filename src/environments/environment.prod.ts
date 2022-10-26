@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://gateway.marvel.com/'
+  apiUrl: 'https://gateway.marvel.com/',
+  apiKey: ''
 };
