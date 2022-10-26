@@ -1,4 +1,4 @@
-<div class="w-full h-full relative app-background" [class.theme-alternate]="themeService.isDarkTheme.value">
+<div class="w-full h-full relative app-background" [class.theme-alternate]="!themeService.isDarkTheme.value">
   <app-loading></app-loading>
   <div class="w-full h-full relative">
     <app-navbar></app-navbar>

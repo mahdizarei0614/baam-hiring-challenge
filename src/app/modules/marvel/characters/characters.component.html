@@ -1,1 +1,12 @@
-<p>characters works!</p>
+<div class="p-4">
+  <mat-card *ngFor="let char of characters" class="mb-4">
+    <mat-card-title-group>
+      <mat-card-title>{{char.name}}</mat-card-title>
+      <mat-card-subtitle>{{char.modified | date}}</mat-card-subtitle>
+      <img mat-card-sm-image [src]="char.thumbnail.path + '.' + char.thumbnail.extension" [alt]="char.name" />
+    </mat-card-title-group>
+    <mat-card-content>
+      {{char.description}}
+    </mat-card-content>
+  </mat-card>
+</div>
