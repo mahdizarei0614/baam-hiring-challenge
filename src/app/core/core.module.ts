@@ -16,20 +16,26 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {ApiUrlInterceptor} from "./interceptors/api-url.interceptor";
 import {ApiKeyInterceptor} from "./interceptors/api-key.interceptor";
 import {AuthService} from "./services/auth.service";
+import {SiteLayoutComponent} from './components/site-layout/site-layout.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatListModule} from "@angular/material/list";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
     LangSwitchComponent,
     NavbarComponent,
     ThemeSwitchComponent,
-    LoadingComponent
+    LoadingComponent,
+    SiteLayoutComponent
   ],
-    exports: [
-        LangSwitchComponent,
-        NavbarComponent,
-        LoadingComponent,
-        ThemeSwitchComponent
-    ],
+  exports: [
+    LangSwitchComponent,
+    NavbarComponent,
+    LoadingComponent,
+    ThemeSwitchComponent
+  ],
   imports: [
     CommonModule,
     I18nModule,
@@ -37,7 +43,11 @@ import {AuthService} from "./services/auth.service";
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    RouterModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true},

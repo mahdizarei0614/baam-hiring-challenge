@@ -1,6 +1,5 @@
 import {Component, HostListener} from '@angular/core';
 import {ThemeService} from "./core/services/theme.service";
-import {Router} from "@angular/router";
 import {BehaviorSubject} from "rxjs";
 
 @Component({
@@ -13,39 +12,9 @@ export class AppComponent {
   onResize(event: any) {
     AppComponent.calcIsDesktop(event);
   }
-  public menuItems: MenuItemModel[] = [
-    {
-      label: 'charactersList',
-      link: ['', 'landing', 'characters']
-    },
-    {
-      label: 'comics',
-      link: ['', 'landing', 'comics']
-    }
-  ]
-  public isDesktopRef = isDesktop;
 
-  constructor(public themeService: ThemeService,
-              private router: Router) {
+  constructor(public themeService: ThemeService) {
     AppComponent.calcIsDesktop();
-  }
-
-  public get getSidenavMode() {
-    if (isDesktop.value) {
-      return 'side';
-    }
-    return 'over';
-  }
-
-  public sidenavItemClicked(item: MenuItemModel, sidenavRef: any) {
-    this.router.navigate(item.link);
-    if (!isDesktop.value) {
-      sidenavRef.close();
-    }
-  }
-
-  public isSidenavItemSelected(item: MenuItemModel) {
-    return this.router.url === item.link.join('/');
   }
 
   private static calcIsDesktop(event: any = null) {
