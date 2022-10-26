@@ -12,6 +12,8 @@ import {ThemeService} from "./services/theme.service";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {LoadingComponent} from "./components/loading/loading.component";
 import {LoadingService} from "./services/loading.service";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {ApiUrlInterceptor} from "./interceptors/api-url.interceptor";
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import {LoadingService} from "./services/loading.service";
     MatSlideToggleModule
   ],
   providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true},
     ThemeService,
     LoadingService
   ]
