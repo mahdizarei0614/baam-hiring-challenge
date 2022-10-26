@@ -8,6 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {TranslateModule} from "@ngx-translate/core";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {TranslateModule} from "@ngx-translate/core";
     CoreModule,
     MatSidenavModule,
     MatListModule,
-    TranslateModule
+    TranslateModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

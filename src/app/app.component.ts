@@ -29,7 +29,7 @@ export class AppComponent implements AfterViewInit {
     AppComponent.calcIsDesktop();
   }
 
-  public getSidenavMode() {
+  public get getSidenavMode() {
     if (isDesktop.value) {
       return 'side';
     }

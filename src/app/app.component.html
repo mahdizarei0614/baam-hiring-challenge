@@ -3,8 +3,13 @@
   <div class="w-full h-full relative">
     <app-navbar [sidenavRef]="sidenav"></app-navbar>
     <mat-sidenav-container class="block">
-      <mat-sidenav #sidenav position="start" [mode]="getSidenavMode()">
+      <mat-sidenav #sidenav class="min-w-[240px]" position="start" [mode]="getSidenavMode">
         <div class="flex flex-col h-full">
+          <mat-toolbar color="accent">
+            <mat-toolbar-row>
+              <span>{{'menu' | translate}}</span>
+            </mat-toolbar-row>
+          </mat-toolbar>
         <mat-selection-list [multiple]="false">
             <mat-list-option *ngFor="let item of menuItems"
                              [selected]="isSidenavItemSelected(item)"
