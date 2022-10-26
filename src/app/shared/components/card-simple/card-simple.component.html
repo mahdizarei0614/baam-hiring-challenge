@@ -2,7 +2,8 @@
   <mat-card-title-group>
     <mat-card-title>{{title}}</mat-card-title>
     <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
-    <img mat-card-sm-image class="rounded-md" [src]="img" [alt]="title" />
+    <img *ngIf="!largeImage" mat-card-sm-image class="rounded-md" [src]="img" [alt]="title" />
+    <img *ngIf="largeImage" mat-card-xl-image class="rounded-md" [src]="img" [alt]="title" />
   </mat-card-title-group>
   <mat-card-content [class.ellipsis]="descEllipsis">
     {{description}}

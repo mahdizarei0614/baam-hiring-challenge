@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {isDesktop} from "../../../app.component";
 
@@ -8,7 +8,6 @@ import {isDesktop} from "../../../app.component";
   styleUrls: ['./lang-switch.component.scss']
 })
 export class LangSwitchComponent {
-  @Input() public sidenavRef: any;
   public isDesktopRef = isDesktop;
 
   constructor(public translate: TranslateService) {

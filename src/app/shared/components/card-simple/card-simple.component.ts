@@ -11,6 +11,7 @@ export class CardSimpleComponent {
   @Input() public img: string = '';
   @Input() public description: string = '';
   @Input() public descEllipsis: boolean = false;
+  @Input() public largeImage: boolean = false;
 
   constructor() { }
 }

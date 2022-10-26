@@ -20,7 +20,7 @@ export class CharacterDetailResolver implements Resolve<CharacterModel> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<CharacterModel> {
     return this.charactersService.getById(route.params['id'])
       .pipe(map((res) => {
-          return res.data.results[0];
+          return res.data.results[0] as CharacterModel;
         }),
         catchError((error) => {
           return throwError(error);

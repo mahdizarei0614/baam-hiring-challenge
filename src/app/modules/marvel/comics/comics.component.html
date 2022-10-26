@@ -1,0 +1,20 @@
+<mat-toolbar color="accent" class="sticky top-0 z-10">
+  <mat-toolbar-row>
+    <span>{{'comics' | translate}}</span>
+    <div class="grow"></div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="p-4 max-w-lg m-auto">
+  <a class="block" href="javascript:void(0)"
+     *ngFor="let comic of comics; let index = index"
+     [routerLink]="['', 'landing', 'characters', comic.id]">
+    <app-card-simple [title]="comic.title"
+                     [subtitle]="(comic.modified | datePipe) || ''"
+                     [img]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+                     [description]="comic.description"
+                     [descEllipsis]="true"
+                     [largeImage]="true"
+                     class="block" [class.mb-4]="index !== (comics.length - 1)"></app-card-simple>
+  </a>
+</div>
+

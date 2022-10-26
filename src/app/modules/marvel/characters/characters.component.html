@@ -9,7 +9,7 @@
      *ngFor="let char of characters; let index = index"
      [routerLink]="['', 'landing', 'characters', char.id]">
     <app-card-simple [title]="char.name"
-                     [subtitle]="(char.modified | date) || ''"
+                     [subtitle]="(char.modified | datePipe) || ''"
                      [img]="char.thumbnail.path + '.' + char.thumbnail.extension"
                      [description]="char.description"
                      [descEllipsis]="true"

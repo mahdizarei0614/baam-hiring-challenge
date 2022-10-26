@@ -4,6 +4,8 @@ import {CharactersComponent} from "./characters/characters.component";
 import {CharactersResolver} from "./characters/characters.resolver";
 import {CharacterDetailComponent} from "./character-detail/character-detail.component";
 import {CharacterDetailResolver} from "./character-detail/character-detail.resolver";
+import {ComicsComponent} from "./comics/comics.component";
+import {ComicsResolver} from "./comics/comics.resolver";
 
 const routes: Routes = [
   {
@@ -16,6 +18,13 @@ const routes: Routes = [
     component: CharactersComponent,
     resolve: {
       characters: CharactersResolver
+    }
+  },
+  {
+    path: 'comics',
+    component: ComicsComponent,
+    resolve: {
+      comics: ComicsResolver
     }
   },
   {

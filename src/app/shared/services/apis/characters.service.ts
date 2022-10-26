@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {ComicModel} from "./comics.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class CharactersService {
   constructor(private http: HttpClient) {
   }
 
-  get(offset = 0, limit = 10): Observable<GetCharactersResponseModel> {
-    return this.http.get<GetCharactersResponseModel>('characters', {
+  get(offset = 0, limit = 10): Observable<RequestResponseModel> {
+    return this.http.get<RequestResponseModel>('characters', {
       params: {
         offset,
         limit
@@ -19,33 +20,37 @@ export class CharactersService {
     });
   }
 
-  getById(characterId: number): Observable<GetCharactersResponseModel> {
-    return this.http.get<GetCharactersResponseModel>(`characters/${characterId}`);
+  getById(characterId: number): Observable<RequestResponseModel> {
+    return this.http.get<RequestResponseModel>(`characters/${characterId}`);
+  }
+
+  getCharacterComics(characterId: number): Observable<RequestResponseModel> {
+    return this.http.get<RequestResponseModel>(`characters/${characterId}/comics`);
   }
 }
 
-export class GetCharactersResponseModel {
-  public data: GetCharactersDataResponseModel = new GetCharactersDataResponseModel();
+export type RequestResponseModel = {
+  data: DataResponseModel;
 }
 
-export class GetCharactersDataResponseModel {
-  public count: number = 0;
-  public limit: number = 0;
-  public offset: number = 0;
-  public results: CharacterModel[] = [];
-  public total: number = 0;
+export type DataResponseModel = {
+  count: number;
+  limit: number;
+  offset: number;
+  results: CharacterModel[] | ComicModel[];
+  total: number;
 }
 
-export class CharacterModel {
-  public id: number = 0;
-  public name: string = '';
-  public description: string = '';
-  public modified: Date = new Date();
-  public resourceURI: string = '';
-  public urls: {type: string, url: string}[] = [];
-  public thumbnail: {path: string, extension: string} = {path: '', extension: ''};
-  public comics: any[] = [];
-  public stories: any[] = [];
-  public events: any[] = [];
-  public series: any[] = [];
+export type CharacterModel = {
+  id: number;
+  name: string;
+  description: string;
+  modified: Date;
+  resourceURI: string;
+  urls: { type: string, url: string }[];
+  thumbnail: { path: string, extension: string };
+  comics: { resourceURI: string, name: string }[];
+  stories: any[];
+  events: any[];
+  series: any[];
 }

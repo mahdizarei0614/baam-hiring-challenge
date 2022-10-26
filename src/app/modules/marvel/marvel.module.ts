@@ -9,11 +9,13 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
+import { ComicsComponent } from './comics/comics.component';
 
 @NgModule({
   declarations: [
     CharactersComponent,
-    CharacterDetailComponent
+    CharacterDetailComponent,
+    ComicsComponent
   ],
   imports: [
     CommonModule,

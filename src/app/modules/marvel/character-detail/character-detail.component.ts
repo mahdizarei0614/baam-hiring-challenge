@@ -8,7 +8,7 @@ import {CharacterModel} from "../../../shared/services/apis/characters.service";
   styleUrls: ['./character-detail.component.scss']
 })
 export class CharacterDetailComponent implements OnInit {
-  public character: CharacterModel = new CharacterModel();
+  public character: CharacterModel;
 
   constructor(private activatedRoute: ActivatedRoute) {
   }

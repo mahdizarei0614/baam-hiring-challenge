@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, HostListener} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {ThemeService} from "./core/services/theme.service";
 import {Router} from "@angular/router";
 import {BehaviorSubject} from "rxjs";
@@ -8,7 +8,7 @@ import {BehaviorSubject} from "rxjs";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     AppComponent.calcIsDesktop(event);
@@ -17,15 +17,16 @@ export class AppComponent implements AfterViewInit {
     {
       label: 'charactersList',
       link: ['', 'landing', 'characters']
+    },
+    {
+      label: 'comics',
+      link: ['', 'landing', 'comics']
     }
   ]
   public isDesktopRef = isDesktop;
 
   constructor(public themeService: ThemeService,
               private router: Router) {
-  }
-
-  public ngAfterViewInit() {
     AppComponent.calcIsDesktop();
   }
 
