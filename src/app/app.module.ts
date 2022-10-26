@@ -5,6 +5,9 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from "./core/core.module";
 import {HttpClientModule} from "@angular/common/http";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    MatSidenavModule,
+    MatListModule,
+    TranslateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

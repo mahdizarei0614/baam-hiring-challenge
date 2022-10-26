@@ -18,6 +18,10 @@ export class CharactersService {
       }
     });
   }
+
+  getById(characterId: number): Observable<GetCharactersResponseModel> {
+    return this.http.get<GetCharactersResponseModel>(`characters/${characterId}`);
+  }
 }
 
 export class GetCharactersResponseModel {

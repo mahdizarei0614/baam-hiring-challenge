@@ -23,11 +23,12 @@ import {ApiKeyInterceptor} from "./interceptors/api-key.interceptor";
     ThemeSwitchComponent,
     LoadingComponent
   ],
-  exports: [
-    LangSwitchComponent,
-    NavbarComponent,
-    LoadingComponent
-  ],
+    exports: [
+        LangSwitchComponent,
+        NavbarComponent,
+        LoadingComponent,
+        ThemeSwitchComponent
+    ],
   imports: [
     CommonModule,
     I18nModule,

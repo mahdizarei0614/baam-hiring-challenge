@@ -6,10 +6,14 @@ import {MatCardModule} from "@angular/material/card";
 import {SharedModule} from "../../shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
-    CharactersComponent
+    CharactersComponent,
+    CharacterDetailComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +21,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatCardModule,
     SharedModule,
     TranslateModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTabsModule,
+    MatIconModule
   ]
 })
 export class MarvelModule {

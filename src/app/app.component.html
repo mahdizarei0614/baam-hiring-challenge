@@ -1,7 +1,28 @@
 <div class="w-full h-full relative app-background" [class.theme-alternate]="!themeService.isDarkTheme.value">
   <app-loading></app-loading>
   <div class="w-full h-full relative">
-    <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
+    <app-navbar [sidenavRef]="sidenav"></app-navbar>
+    <mat-sidenav-container class="block">
+      <mat-sidenav #sidenav position="start" [mode]="getSidenavMode()">
+        <div class="flex flex-col h-full">
+        <mat-selection-list [multiple]="false">
+            <mat-list-option *ngFor="let item of menuItems"
+                             [selected]="isSidenavItemSelected(item)"
+                             [value]="item.label"
+                             (click)="sidenavItemClicked(item, sidenav)">
+              {{item.label | translate}}
+            </mat-list-option>
+        </mat-selection-list>
+          <div class="grow"></div>
+          <div *ngIf="!isDesktopRef.value" class="flex items-center justify-between p-4">
+            <app-theme-switch class="mr-4"></app-theme-switch>
+            <app-lang-switch [sidenavRef]="sidenav"></app-lang-switch>
+          </div>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </div>
 </div>

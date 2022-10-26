@@ -4,7 +4,7 @@
     <div class="grow"></div>
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="p-4">
+<div class="p-4 max-w-lg m-auto">
   <a class="block" href="javascript:void(0)"
      *ngFor="let char of characters; let index = index"
      [routerLink]="['', 'landing', 'characters', char.id]">

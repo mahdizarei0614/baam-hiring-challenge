@@ -1,10 +1,13 @@
 <nav class="navbar-header flex flex-wrap items-center py-2 px-4">
+  <button mat-icon-button aria-label="Menu Toggle" (click)="sidenavRef.toggle()">
+    <mat-icon class="text-white">menu</mat-icon>
+  </button>
   <a href="https://www.marvel.com" target="_blank" title="Marvel Logo">
     <img src="assets/icons/core/marvel-logo.svg"
          width="120"
          alt="marvel logo" />
   </a>
   <div class="grow"></div>
-  <app-theme-switch class="mr-6"></app-theme-switch>
-  <app-lang-switch></app-lang-switch>
+  <app-theme-switch *ngIf="isDesktopRef.value" class="mr-4"></app-theme-switch>
+  <app-lang-switch *ngIf="isDesktopRef.value" [sidenavRef]="sidenavRef"></app-lang-switch>
 </nav>

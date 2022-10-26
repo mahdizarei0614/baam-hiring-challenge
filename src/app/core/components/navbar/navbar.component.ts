@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {isDesktop} from "../../../app.component";
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +7,8 @@ import {Component} from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  @Input() public sidenavRef: any = null;
+  public isDesktopRef = isDesktop;
 
   constructor() {
   }

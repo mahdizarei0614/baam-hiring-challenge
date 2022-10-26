@@ -1,0 +1,40 @@
+<mat-toolbar color="accent" class="sticky top-0 z-10">
+  <mat-toolbar-row>
+    <span>{{'charactersList' | translate}}:</span>
+    &nbsp;
+    <span>{{character?.name}}</span>
+    <div class="grow"></div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="py-4 max-w-lg m-auto">
+  <img class="w-2/4 rounded-full m-auto mb-4" [src]="character?.thumbnail?.path + '.' + character?.thumbnail?.extension">
+  <h1 class="text-center">{{character?.name}}</h1>
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">info</mat-icon>
+        &nbsp;
+        {{'characterOverview' | translate}}
+      </ng-template>
+      <p class="p-4">
+        {{character?.description}}
+      </p>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">library_books</mat-icon>
+        &nbsp;
+        {{'comics' | translate}}
+      </ng-template>
+      Content 2
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">movie</mat-icon>
+        &nbsp;
+        {{'movies' | translate}}
+      </ng-template>
+      Content 3
+    </mat-tab>
+  </mat-tab-group>
+</div>

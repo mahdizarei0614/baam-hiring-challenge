@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 
 @Component({
@@ -7,6 +7,7 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./lang-switch.component.scss']
 })
 export class LangSwitchComponent {
+  @Input() public sidenavRef: any;
 
   constructor(public translate: TranslateService) {
   }

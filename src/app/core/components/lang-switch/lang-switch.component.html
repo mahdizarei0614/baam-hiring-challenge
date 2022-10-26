@@ -4,7 +4,7 @@
 <mat-menu #menu="matMenu">
   <button mat-menu-item
           *ngFor="let lang of translate.getLangs()"
-          (click)="translate.use(lang)"
+          (click)="translate.use(lang); sidenavRef.close()"
           [disabled]="lang === translate.currentLang">
     <mat-icon>flag</mat-icon>
     <span>{{lang}}</span>
