@@ -1,7 +1,7 @@
 <div class="flex items-center">
-  <mat-icon class="text-white">wb_sunny</mat-icon>
+  <mat-icon [class.text-white]="isDesktopRef.value">wb_sunny</mat-icon>
   <mat-slide-toggle class="px-2"
                     [checked]="themeService.isDarkTheme.value"
                     (change)="themeService.isDarkTheme.next($event.checked)"></mat-slide-toggle>
-  <mat-icon class="text-white">brightness_2</mat-icon>
+  <mat-icon [class.text-white]="isDesktopRef.value">brightness_2</mat-icon>
 </div>

@@ -2,13 +2,16 @@
   <mat-toolbar-row>
     <span>{{'charactersList' | translate}}:</span>
     &nbsp;
-    <span>{{character?.name}}</span>
+    <span>{{character.name}}</span>
     <div class="grow"></div>
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="py-4 max-w-lg m-auto">
-  <img class="w-2/4 rounded-full m-auto mb-4" [src]="character?.thumbnail?.path + '.' + character?.thumbnail?.extension">
-  <h1 class="text-center">{{character?.name}}</h1>
+  <img class="w-2/4 rounded-full m-auto mb-4"
+       [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+       [alt]="'Image of ' + character.name"
+  >
+  <h1 class="text-center">{{character.name}}</h1>
   <mat-tab-group>
     <mat-tab>
       <ng-template mat-tab-label>
@@ -17,7 +20,7 @@
         {{'characterOverview' | translate}}
       </ng-template>
       <p class="p-4">
-        {{character?.description}}
+        {{character.description}}
       </p>
     </mat-tab>
     <mat-tab>

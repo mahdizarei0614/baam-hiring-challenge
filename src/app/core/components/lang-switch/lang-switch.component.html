@@ -1,5 +1,5 @@
 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Select Language Menu">
-  <mat-icon class="text-white">language</mat-icon>
+  <mat-icon [class.text-white]="isDesktopRef.value">language</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item
