@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {getWindow, isDesktop} from "../../../app.component";
+import {isDesktop} from "../../../app.component";
 import {FormControl, Validators} from "@angular/forms";
 import {AuthService} from "../../../core/services/auth.service";
 import {Md5} from "md5-typescript";
@@ -35,10 +35,7 @@ export class LoginComponent implements OnInit {
       .subscribe((res) => {
         this.userService.setUser(res.user as IUserModel);
         localStorage?.setItem('isLogin', 'true');
-        if (getWindow()) {
-          // @ts-ignore
-          getWindow().location.href = '/';
-        }
+        this.router.navigate(['']);
       }, (error) => {
         this._snackBar.open(String(error.errorMessage))._dismissAfter(5000);
       });
