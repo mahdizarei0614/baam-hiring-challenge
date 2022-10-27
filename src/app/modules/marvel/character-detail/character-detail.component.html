@@ -7,7 +7,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="py-4 max-w-lg m-auto">
-  <img class="w-2/4 rounded-full m-auto mb-4"
+  <img class="w-60 h-60 rounded-full m-auto mb-4"
        [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
        [alt]="'Image of ' + character.name">
   <h1 class="text-center">{{character.name}}</h1>
@@ -28,7 +28,11 @@
         &nbsp;
         {{'comics' | translate}}
       </ng-template>
-      Content 2
+      <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let comic of character.comics.items" [value]="comic.name">
+          {{comic.name}}
+        </mat-list-option>
+      </mat-selection-list>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>
@@ -36,7 +40,11 @@
         &nbsp;
         {{'movies' | translate}}
       </ng-template>
-      Content 3
+      <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let series of character.series.items" [value]="series.name">
+          {{series.name}}
+        </mat-list-option>
+      </mat-selection-list>
     </mat-tab>
   </mat-tab-group>
 </div>

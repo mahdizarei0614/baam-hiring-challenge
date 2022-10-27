@@ -10,6 +10,7 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
 import { ComicsComponent } from './comics/comics.component';
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -17,16 +18,17 @@ import { ComicsComponent } from './comics/comics.component';
     CharacterDetailComponent,
     ComicsComponent
   ],
-  imports: [
-    CommonModule,
-    MarvelRoutingModule,
-    MatCardModule,
-    SharedModule,
-    TranslateModule,
-    MatToolbarModule,
-    MatTabsModule,
-    MatIconModule
-  ]
+    imports: [
+        CommonModule,
+        MarvelRoutingModule,
+        MatCardModule,
+        SharedModule,
+        TranslateModule,
+        MatToolbarModule,
+        MatTabsModule,
+        MatIconModule,
+        MatListModule
+    ]
 })
 export class MarvelModule {
 }

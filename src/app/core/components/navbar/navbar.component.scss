@@ -5,3 +5,8 @@
 .navbar-header {
   background: map.get(map.get(mat.get-color-config($theme), 'primary'), 'main');
 }
+
+.absolute-center {
+  left: 50%;
+  transform: translateX(-50%);
+}

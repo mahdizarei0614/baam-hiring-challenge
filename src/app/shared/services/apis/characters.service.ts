@@ -49,8 +49,12 @@ export type CharacterModel = {
   resourceURI: string;
   urls: { type: string, url: string }[];
   thumbnail: { path: string, extension: string };
-  comics: { resourceURI: string, name: string }[];
+  comics: {
+    items: { resourceURI: string, name: string }[]
+  };
   stories: any[];
   events: any[];
-  series: any[];
+  series: {
+    items: { resourceURI: string, name: string }[]
+  };
 }

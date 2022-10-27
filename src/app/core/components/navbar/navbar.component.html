@@ -1,8 +1,12 @@
-<nav class="navbar-header flex flex-wrap items-center py-2 px-4">
+<nav class="navbar-header flex flex-wrap items-center py-2 px-4 relative">
   <button mat-icon-button aria-label="Menu Toggle" (click)="sidenavRef.toggle()">
     <mat-icon class="text-white">menu</mat-icon>
   </button>
-  <a href="https://www.marvel.com" target="_blank" title="Marvel Logo">
+  <a class="ease-in-out duration-300 absolute left-14 top-1"
+     href="https://www.marvel.com"
+     target="_blank"
+     title="Marvel Logo"
+     [ngClass]="{'absolute-center': !isDesktopRef.value}">
     <img src="assets/icons/core/marvel-logo.svg"
          width="120"
          alt="marvel logo" />
