@@ -11,12 +11,16 @@ export class ComicsService {
   constructor(private http: HttpClient) {
   }
 
-  get(offset = 0, limit = 10): Observable<RequestResponseModel> {
+  get(offset = 0, limit = 10, titleStartsWith: string = ''): Observable<RequestResponseModel> {
+    const params: any = {
+      offset,
+      limit
+    }
+    if (titleStartsWith?.length) {
+      params.titleStartsWith = titleStartsWith
+    }
     return this.http.get<RequestResponseModel>('comics', {
-      params: {
-        offset,
-        limit
-      }
+      params
     });
   }
 }

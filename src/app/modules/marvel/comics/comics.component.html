@@ -1,20 +1,49 @@
-<mat-toolbar color="accent" class="sticky top-0 z-10">
-  <mat-toolbar-row>
-    <span>{{'comics' | translate}}</span>
-    <div class="grow"></div>
-  </mat-toolbar-row>
-</mat-toolbar>
-<div class="p-4 max-w-lg m-auto">
-  <a class="block" href="javascript:void(0)"
-     *ngFor="let comic of comics; let index = index"
-     [routerLink]="['', 'landing', 'characters', comic.id]">
-    <app-card-simple [title]="comic.title"
-                     [subtitle]="(comic.modified | datePipe) || ''"
-                     [img]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
-                     [description]="comic.description"
-                     [descEllipsis]="true"
-                     [largeImage]="true"
-                     class="block" [class.mb-4]="index !== (comics.length - 1)"></app-card-simple>
-  </a>
+<div #comicsPage class="page-full overflow-y-auto">
+  <mat-toolbar color="accent" class="sticky top-0 z-10 max-h-14 min-h-[56px]" style="padding: 0">
+    <mat-toolbar-row *ngIf="!showSearchbar" [@inOutAnimation]
+                     class="opacity-100 absolute inset-0 max-h-14 min-h-[56px]">
+      <span>{{'comics' | translate}}</span>
+      <div class="grow"></div>
+      <button mat-icon-button (click)=" showSearchbar = true;">
+        <mat-icon class="text-white">search</mat-icon>
+      </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row *ngIf="showSearchbar" [@inOutAnimation]
+                     class="opacity-100 absolute inset-0 max-h-14 min-h-[56px]">
+      <div class="w-full h-full py-3 flex items-center">
+        <span *ngIf="isDesktopRef.value">{{'charactersList' | translate}}</span>
+        <div class="sm:grow"></div>
+        <input matInput type="text" class="h-full rounded-full grow sm:grow-0 md:w-60 py-2 px-4 min-w-[248px]"
+               style="background: rgba(255, 255, 255, .3)"
+               [(ngModel)]="searchbarValue"
+               [placeholder]="('searchIn' | translate) + ' ' + ('comics' | translate)"
+               (input)="inputSearchbar()">
+        <button mat-icon-button aria-label="Clear"
+                (click)="hideSearchbar()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="p-4 max-w-lg m-auto"
+       infiniteScroll
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="50"
+       [infiniteScrollContainer]="comicsPage"
+       (scrolled)="getNextList(comics.length, 10, searchbarValue)">
+    <a class="block" href="javascript:void(0)"
+       *ngFor="let comic of comics; let index = index"
+       [routerLink]="['', 'landing', 'comics', comic.id]">
+      <app-card-simple [title]="comic.title"
+                       [subtitle]="(comic.modified | datePipe) || ''"
+                       [img]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+                       [description]="comic.description"
+                       [descEllipsis]="true"
+                       [largeImage]="true"
+                       class="block" [class.mb-4]="index !== (comics.length - 1)"></app-card-simple>
+    </a>
+  </div>
+  <app-no-result *ngIf="!comics.length"></app-no-result>
 </div>
+
 
