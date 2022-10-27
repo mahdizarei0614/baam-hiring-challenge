@@ -19,7 +19,7 @@
                [placeholder]="('searchbarPlaceholder' | translate) + ' ' + ('charactersList' | translate)"
                (input)="inputSearchbar()">
         <button mat-icon-button aria-label="Clear"
-                (click)="searchbarValue = ''; showSearchbar = false; getNextList(0, 10)">
+                (click)="hideSearchbar()">
           <mat-icon>close</mat-icon>
         </button>
       </div>

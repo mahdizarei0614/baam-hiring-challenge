@@ -48,6 +48,14 @@ export class CharactersComponent implements OnInit, OnDestroy {
     }, 500);
   }
 
+  public hideSearchbar() {
+    if (this.searchbarValue?.length) {
+      this.getNextList(0, 10)
+    }
+    this.showSearchbar = false;
+    this.searchbarValue = '';
+  }
+
   public ngOnDestroy() {
     this.subscription.unsubscribe();
   }
