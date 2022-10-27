@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {isDesktop, MenuItemModel} from "../../../app.component";
 import {Router} from "@angular/router";
+import {UserService} from "../../../shared/services/user.service";
 
 @Component({
   selector: 'app-site-layout',
@@ -20,7 +21,8 @@ export class SiteLayoutComponent {
   ]
   public isDesktopRef = isDesktop;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              public userService: UserService) {
   }
 
   public get getSidenavMode() {
