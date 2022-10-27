@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="bg-black login-bg fixed inset-0 w-full h-full bg-contain sm:bg-cover bg-top sm:bg-center bg-no-repeat flex flex-col justify-center items-center">
+  <div *ngIf="!isDesktopRef.value" class="w-full illustration-spacer shrink-0"></div>
+  <div class="form-container p-8 w-full sm:w-80 rounded-md" [class.grow]="!isDesktopRef.value">
+    <form class="w-full flex flex-col items-center" (ngSubmit)="login($event)">
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input name="email" type="email" matInput [formControl]="emailFormControl" placeholder="joundoe@example.com">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input name="password" type="email" matInput [formControl]="passwordFormControl" placeholder="Password">
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <button mat-flat-button [disabled]="passwordFormControl.invalid || emailFormControl.invalid" type="submit" color="primary">Login</button>
+    </form>
+  </div>
+</div>

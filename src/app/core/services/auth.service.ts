@@ -35,13 +35,15 @@ export class AuthService {
       const foundUser = this.users.find((user) => user.email === email);
       if (!foundUser) {
         observer.error({
-          authenticated: false
+          authenticated: false,
+          errorMessage: 'User Not Found.'
         });
         return;
       }
       if (Md5.init(foundUser.password) !== password) {
         observer.error({
-          authenticated: false
+          authenticated: false,
+          errorMessage: 'Invalid Password.'
         });
         return;
       }
@@ -55,10 +57,15 @@ export class AuthService {
       });
     });
   }
+
+  public isLoggedIn() {
+    return localStorage.getItem('isLogin') === 'true';
+  }
 }
 
 export type AuthenticateResponseModel = {
   authenticated: boolean,
+  errorMessage?: string,
   user?: {
     name: string,
     email: string,

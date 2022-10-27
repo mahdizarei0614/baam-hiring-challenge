@@ -19,12 +19,12 @@ export class AppComponent {
 
   private static calcIsDesktop(event: any = null) {
     const innerWidth = event?.target?.innerWidth ? event?.target?.innerWidth : getWindow()?.innerWidth;
-    isDesktop.next(typeof innerWidth !== 'undefined' && innerWidth > 768);
+    isDesktop.next(typeof innerWidth !== 'undefined' && innerWidth >= 640);
   }
 }
 
 export function getWindow() {
-  return typeof window !== 'undefined' ? window : null;
+  return typeof window !== 'undefined' ? window : undefined;
 }
 
 export type MenuItemModel = {
