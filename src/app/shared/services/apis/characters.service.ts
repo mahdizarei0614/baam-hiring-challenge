@@ -11,12 +11,16 @@ export class CharactersService {
   constructor(private http: HttpClient) {
   }
 
-  get(offset = 0, limit = 10): Observable<RequestResponseModel> {
+  get(offset = 0, limit = 10, nameStartsWith: string = ''): Observable<RequestResponseModel> {
+    const params: any = {
+      offset,
+      limit
+    }
+    if (nameStartsWith?.length) {
+      params.nameStartsWith = nameStartsWith
+    }
     return this.http.get<RequestResponseModel>('characters', {
-      params: {
-        offset,
-        limit
-      }
+      params
     });
   }
 

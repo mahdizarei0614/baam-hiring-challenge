@@ -9,5 +9,6 @@
   "emailInvalidError": "Please enter a valid email address",
   "emailRequiredError": "Email is <strong>required</strong>",
   "passwordRequiredError": "Password is <strong>required</strong>",
-  "loginButtonText": "Login"
+  "loginButtonText": "Login",
+  "searchbarPlaceholder": "Search"
 }

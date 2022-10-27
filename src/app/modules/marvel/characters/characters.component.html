@@ -1,15 +1,35 @@
 <ng-container class="page-full">
-  <mat-toolbar color="accent" class="sticky top-0 z-10">
-    <mat-toolbar-row>
+  <mat-toolbar color="accent" class="sticky top-0 z-10 max-h-14 min-h-[56px]" style="padding: 0">
+    <mat-toolbar-row *ngIf="!showSearchbar" [@inOutAnimation]
+                     class="opacity-100 absolute inset-0 max-h-14 min-h-[56px]">
       <span>{{'charactersList' | translate}}</span>
       <div class="grow"></div>
+      <button mat-icon-button (click)=" showSearchbar = true;">
+        <mat-icon class="text-white">search</mat-icon>
+      </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row *ngIf="showSearchbar" [@inOutAnimation]
+                     class="opacity-100 absolute inset-0 max-h-14 min-h-[56px]">
+      <div class="w-full h-full py-3 flex items-center">
+        <span *ngIf="isDesktopRef.value">{{'charactersList' | translate}}</span>
+        <div class="sm:grow"></div>
+        <input matInput type="text" class="h-full rounded-full grow sm:grow-0 md:w-60 py-2 px-4"
+               style="background: rgba(255, 255, 255, .3)"
+               [(ngModel)]="searchbarValue"
+               [placeholder]="('searchbarPlaceholder' | translate) + ' ' + ('charactersList' | translate)"
+               (input)="inputSearchbar()">
+        <button mat-icon-button aria-label="Clear"
+                (click)="searchbarValue = ''; showSearchbar = false; getNextList(0, 10)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
   <div class="p-4 max-w-lg m-auto overflow-y-auto"
        infiniteScroll
        [infiniteScrollDistance]="2"
        [infiniteScrollThrottle]="50"
-       (scrolled)="getNextList()">
+       (scrolled)="getNextList(characters.length, 10, searchbarValue)">
     <a class="block" href="javascript:void(0)"
        *ngFor="let char of characters; let index = index"
        [routerLink]="['', 'landing', 'characters', char.id]">
