@@ -1,5 +1,10 @@
 <mat-toolbar color="accent" class="sticky top-0 z-10">
   <mat-toolbar-row>
+    <button mat-icon-button aria-label="Back button" (click)="$location.back()">
+      <mat-icon>
+        {{currentLangRef.value === 'fa' ? 'keyboard_arrow_right' : 'keyboard_arrow_left'}}
+      </mat-icon>
+    </button>
     <span>{{'charactersList' | translate}}:</span>
     &nbsp;
     <span>{{character.name}}</span>

@@ -12,6 +12,7 @@ export class AppComponent {
   onResize(event: any) {
     AppComponent.calcIsDesktop(event);
   }
+  public currentLangRef = currentLang;
 
   constructor(public themeService: ThemeService) {
     AppComponent.calcIsDesktop();
@@ -33,3 +34,4 @@ export type MenuItemModel = {
 }
 
 export let isDesktop: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+export let currentLang: BehaviorSubject<string> = new BehaviorSubject<string>('en');

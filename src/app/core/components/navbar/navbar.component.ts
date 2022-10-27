@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {isDesktop} from "../../../app.component";
+import {currentLang, isDesktop} from "../../../app.component";
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +9,7 @@ import {isDesktop} from "../../../app.component";
 export class NavbarComponent {
   @Input() public sidenavRef: any = null;
   public isDesktopRef = isDesktop;
+  public currentLangRef = currentLang;
 
   constructor() {
   }

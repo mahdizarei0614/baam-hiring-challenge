@@ -1,4 +1,9 @@
 .absolute-center {
   left: 50%;
   transform: translateX(-50%);
+
+  &-rtl {
+    right: 50%;
+    transform: translateX(50%);
+  }
 }

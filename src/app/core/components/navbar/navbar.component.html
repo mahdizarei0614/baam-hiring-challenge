@@ -2,16 +2,25 @@
   <button mat-icon-button aria-label="Menu Toggle" (click)="sidenavRef.toggle()">
     <mat-icon class="text-white">menu</mat-icon>
   </button>
-  <a class="ease-in-out duration-300 absolute left-14 top-1"
+  <a class="ease-in-out duration-300 absolute top-1"
      href="https://www.marvel.com"
      target="_blank"
      title="Marvel Logo"
-     [ngClass]="{'absolute-center': !isDesktopRef.value}">
+     [ngClass]="{
+     'left-14': currentLangRef.value !== 'fa',
+     'right-14': currentLangRef.value === 'fa',
+     'absolute-center': !isDesktopRef.value && currentLangRef.value !== 'fa',
+     'absolute-center-rtl': !isDesktopRef.value && currentLangRef.value === 'fa'
+     }">
     <img src="assets/icons/core/marvel-logo.svg"
          width="120"
-         alt="marvel logo" />
+         alt="marvel logo"/>
   </a>
   <div class="grow"></div>
-  <app-theme-switch *ngIf="isDesktopRef.value" class="mr-4"></app-theme-switch>
+  <app-theme-switch *ngIf="isDesktopRef.value"
+                    [ngClass]="{
+     'mr-4': currentLangRef.value !== 'fa',
+     'ml-4': currentLangRef.value === 'fa'
+     }"></app-theme-switch>
   <app-lang-switch *ngIf="isDesktopRef.value"></app-lang-switch>
 </nav>

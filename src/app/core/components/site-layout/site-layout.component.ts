@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {isDesktop, MenuItemModel} from "../../../app.component";
+import {currentLang, isDesktop, MenuItemModel} from "../../../app.component";
 import {Router} from "@angular/router";
 import {UserService} from "../../../shared/services/user.service";
 
@@ -20,6 +20,7 @@ export class SiteLayoutComponent {
     }
   ]
   public isDesktopRef = isDesktop;
+  public currentLangRef = currentLang;
 
   constructor(private router: Router,
               public userService: UserService) {

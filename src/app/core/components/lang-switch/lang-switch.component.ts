@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
-import {isDesktop} from "../../../app.component";
+import {LangChangeEvent, TranslateService} from "@ngx-translate/core";
+import {currentLang, isDesktop} from "../../../app.component";
 
 @Component({
   selector: 'app-lang-switch',
@@ -11,6 +11,9 @@ export class LangSwitchComponent {
   public isDesktopRef = isDesktop;
 
   constructor(public translate: TranslateService) {
+    translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      currentLang.next(event.lang);
+    });
   }
 
 }

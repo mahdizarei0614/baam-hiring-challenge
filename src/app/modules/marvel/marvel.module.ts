@@ -11,6 +11,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
 import { ComicsComponent } from './comics/comics.component';
 import {MatListModule} from "@angular/material/list";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {MatListModule} from "@angular/material/list";
         MatToolbarModule,
         MatTabsModule,
         MatIconModule,
-        MatListModule
+        MatListModule,
+        MatButtonModule
     ]
 })
 export class MarvelModule {

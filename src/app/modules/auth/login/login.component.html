@@ -13,7 +13,7 @@
       </mat-form-field>
       <mat-form-field class="w-full" appearance="fill">
         <mat-label>{{'passwordLabel' | translate}}</mat-label>
-        <input name="password" type="email" matInput [formControl]="passwordFormControl" placeholder="Password">
+        <input name="password" type="password" matInput [formControl]="passwordFormControl" placeholder="Password">
         <mat-error *ngIf="passwordFormControl.hasError('required')"
                    [innerHTML]="'passwordRequiredError' | translate"></mat-error>
       </mat-form-field>
