@@ -21,6 +21,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {RouterModule} from "@angular/router";
+import {LoadingInterceptor} from "./interceptors/loading.interceptor";
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import {RouterModule} from "@angular/router";
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
     ThemeService,
     LoadingService,
     AuthService
