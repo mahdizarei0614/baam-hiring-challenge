@@ -1,3 +1,5 @@
-.page-full {
+.page-full, app-characters {
+  display: block;
   min-height: calc(100vh - 56px);
+  max-height: calc(100vh - 56px);
 }

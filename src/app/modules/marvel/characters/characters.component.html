@@ -1,4 +1,4 @@
-<ng-container class="page-full">
+<div #charactersPage class="page-full overflow-y-auto">
   <mat-toolbar color="accent" class="sticky top-0 z-10 max-h-14 min-h-[56px]" style="padding: 0">
     <mat-toolbar-row *ngIf="!showSearchbar" [@inOutAnimation]
                      class="opacity-100 absolute inset-0 max-h-14 min-h-[56px]">
@@ -25,10 +25,11 @@
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-  <div class="p-4 max-w-lg m-auto overflow-y-auto"
+  <div class="p-4 max-w-lg m-auto"
        infiniteScroll
        [infiniteScrollDistance]="2"
        [infiniteScrollThrottle]="50"
+       [infiniteScrollContainer]="charactersPage"
        (scrolled)="getNextList(characters.length, 10, searchbarValue)">
     <a class="block" href="javascript:void(0)"
        *ngFor="let char of characters; let index = index"
@@ -41,4 +42,4 @@
                        class="block" [class.mb-4]="index !== (characters.length - 1)"></app-card-simple>
     </a>
   </div>
-</ng-container>
+</div>
