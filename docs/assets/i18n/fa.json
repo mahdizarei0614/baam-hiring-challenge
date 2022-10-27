@@ -3,5 +3,12 @@
   "characterOverview": "بررسی",
   "comics": "کامیک‌ها",
   "movies": "فیلم‌ها",
-  "menu": "منو"
+  "menu": "منو",
+  "emailLabel": "ایمیل",
+  "passwordLabel": "پسورد",
+  "emailInvalidError": "لطفا ,ایمیل را با فرمت درست وارد کنید.",
+  "emailRequiredError": "ایمیل <strong>ضروری</strong> است.",
+  "passwordRequiredError": "پسورد <strong>ضروری</strong> است.",
+  "loginButtonText": "ورود",
+  "searchbarPlaceholder": "جستجو کردن"
 }

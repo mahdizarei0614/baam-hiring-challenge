@@ -3,5 +3,12 @@
   "characterOverview": "Overview",
   "comics": "Comics",
   "movies": "Movies",
-  "menu": "Menu"
+  "menu": "Menu",
+  "emailLabel": "Email",
+  "passwordLabel": "Password",
+  "emailInvalidError": "Please enter a valid email address",
+  "emailRequiredError": "Email is <strong>required</strong>",
+  "passwordRequiredError": "Password is <strong>required</strong>",
+  "loginButtonText": "Login",
+  "searchbarPlaceholder": "Search"
 }
