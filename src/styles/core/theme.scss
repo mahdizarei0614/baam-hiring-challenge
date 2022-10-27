@@ -271,3 +271,7 @@ $altTheme: (
     color: $dark-text;
   }
 }
+
+.bg-primary {
+  background: var(--primary-color);
+}
