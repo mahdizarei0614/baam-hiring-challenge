@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Md5} from "md5-typescript";
 import {Observable} from "rxjs";
+import {IUserModel} from "../../shared/services/user.service";
 
 @Injectable({
   providedIn: 'root'
@@ -59,16 +60,12 @@ export class AuthService {
   }
 
   public isLoggedIn() {
-    return localStorage.getItem('isLogin') === 'true';
+    return (localStorage?.getItem('isLogin') === 'true') && localStorage?.getItem('user');
   }
 }
 
 export type AuthenticateResponseModel = {
   authenticated: boolean,
   errorMessage?: string,
-  user?: {
-    name: string,
-    email: string,
-    age: number
-  }
+  user?: IUserModel;
 }
