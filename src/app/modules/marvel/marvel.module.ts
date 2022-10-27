@@ -6,12 +6,13 @@ import {MatCardModule} from "@angular/material/card";
 import {SharedModule} from "../../shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import {CharacterDetailComponent} from './character-detail/character-detail.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
-import { ComicsComponent } from './comics/comics.component';
+import {ComicsComponent} from './comics/comics.component';
 import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
+import {InfiniteScrollModule} from "ngx-infinite-scroll";
 
 @NgModule({
   declarations: [
@@ -19,18 +20,19 @@ import {MatButtonModule} from "@angular/material/button";
     CharacterDetailComponent,
     ComicsComponent
   ],
-    imports: [
-        CommonModule,
-        MarvelRoutingModule,
-        MatCardModule,
-        SharedModule,
-        TranslateModule,
-        MatToolbarModule,
-        MatTabsModule,
-        MatIconModule,
-        MatListModule,
-        MatButtonModule
-    ]
+  imports: [
+    CommonModule,
+    MarvelRoutingModule,
+    MatCardModule,
+    SharedModule,
+    TranslateModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    InfiniteScrollModule
+  ]
 })
 export class MarvelModule {
 }

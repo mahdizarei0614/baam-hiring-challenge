@@ -1,5 +1,5 @@
 <app-navbar [sidenavRef]="sidenav"></app-navbar>
-<mat-sidenav-container class="block">
+<mat-sidenav-container class="block page-full">
   <mat-sidenav #sidenav class="min-w-[240px]" position="start" [mode]="getSidenavMode">
     <div class="flex flex-col h-full">
       <mat-toolbar color="accent">
@@ -28,7 +28,7 @@
       </div>
     </div>
   </mat-sidenav>
-  <mat-sidenav-content class="overflow-y-auto">
+  <mat-sidenav-content class="page-full">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

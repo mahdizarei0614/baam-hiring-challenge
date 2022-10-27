@@ -20,6 +20,7 @@ const routes: Routes = [
       {
         path: '',
         canLoad: [AuthGuard],
+        canActivateChild: [AuthGuard],
         loadChildren: () => import('./modules/marvel/marvel.module').then((m) => m.MarvelModule)
       }
     ]

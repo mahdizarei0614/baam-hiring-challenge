@@ -1,19 +1,24 @@
-<mat-toolbar color="accent" class="sticky top-0 z-10">
-  <mat-toolbar-row>
-    <span>{{'charactersList' | translate}}</span>
-    <div class="grow"></div>
-  </mat-toolbar-row>
-</mat-toolbar>
-<div class="p-4 max-w-lg m-auto">
-  <a class="block" href="javascript:void(0)"
-     *ngFor="let char of characters; let index = index"
-     [routerLink]="['', 'landing', 'characters', char.id]">
-    <app-card-simple [title]="char.name"
-                     [subtitle]="(char.modified | datePipe) || ''"
-                     [img]="char.thumbnail.path + '.' + char.thumbnail.extension"
-                     [description]="char.description"
-                     [descEllipsis]="true"
-                     class="block" [class.mb-4]="index !== (characters.length - 1)"></app-card-simple>
-  </a>
-</div>
-
+<ng-container class="page-full">
+  <mat-toolbar color="accent" class="sticky top-0 z-10">
+    <mat-toolbar-row>
+      <span>{{'charactersList' | translate}}</span>
+      <div class="grow"></div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="p-4 max-w-lg m-auto overflow-y-auto"
+       infiniteScroll
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="50"
+       (scrolled)="getNextList()">
+    <a class="block" href="javascript:void(0)"
+       *ngFor="let char of characters; let index = index"
+       [routerLink]="['', 'landing', 'characters', char.id]">
+      <app-card-simple [title]="char.name"
+                       [subtitle]="(char.modified | datePipe) || ''"
+                       [img]="char.thumbnail.path + '.' + char.thumbnail.extension"
+                       [description]="char.description"
+                       [descEllipsis]="true"
+                       class="block" [class.mb-4]="index !== (characters.length - 1)"></app-card-simple>
+    </a>
+  </div>
+</ng-container>
