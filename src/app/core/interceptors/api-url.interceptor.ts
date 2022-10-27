@@ -16,7 +16,7 @@ export class ApiUrlInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (req.url.startsWith('/assets/') && environment.githubDeploy) {
-      const apiReq = req.clone({url: 'baam-hiring-challenge/docs/' + req.url});
+      const apiReq = req.clone({url: 'docs' + req.url});
       return next.handle(apiReq);
     }
     const apiReq = req.clone({url: environment.apiUrl + req.url});
