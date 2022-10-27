@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "nx",
     "start": "ng serve",
-    "build": "ng build --configuration production --base-href https://mahdizarei0614.github.io/baam-hiring-challenge",
-    "build-gh": "ng build --configuration github --output-path docs --base-href https://mahdizarei0614.github.io/baam-hiring-challenge",
+    "build": "ng build --configuration production --base-href https://mahdizarei0614.github.io/baam-hiring-challenge/",
+    "build-gh": "ng build --configuration github --output-path docs --base-href https://mahdizarei0614.github.io/baam-hiring-challenge/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:cov": "ng test --coverage",

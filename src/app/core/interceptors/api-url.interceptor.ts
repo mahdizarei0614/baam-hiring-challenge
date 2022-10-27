@@ -15,7 +15,11 @@ export class ApiUrlInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (req.url.startsWith('/assets/') && environment.githubDeploy) {
+    if (req.url.startsWith('/assets/')) {
+      if (environment.githubDeploy) {
+        const apiReq = req.clone({url: environment.githubPageAddress + req.url});
+        return next.handle(apiReq);
+      }
       return next.handle(req);
     }
     const apiReq = req.clone({url: environment.apiUrl + req.url});
