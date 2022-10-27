@@ -4,7 +4,7 @@
     <form class="w-full flex flex-col items-center" (ngSubmit)="login($event)">
       <mat-form-field class="w-full" appearance="fill">
         <mat-label>Email</mat-label>
-        <input name="email" type="email" matInput [formControl]="emailFormControl" placeholder="joundoe@example.com">
+        <input name="email" type="email" matInput [formControl]="emailFormControl" placeholder="johndoe@example.com">
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
           Please enter a valid email address
         </mat-error>
