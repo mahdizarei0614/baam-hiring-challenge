@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SiteLayoutComponent} from "./core/components/site-layout/site-layout.component";
+import {AuthGuard} from "./core/guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        canLoad: [AuthGuard],
         loadChildren: () => import('./modules/marvel/marvel.module').then((m) => m.MarvelModule)
       }
     ]
