@@ -16,6 +16,9 @@ export class ApiKeyInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (req.url.startsWith('/assets/')) {
+      return next.handle(req);
+    }
     const timestamp = String(Number(Date.now()));
     const apiReq = req.clone({
       params: req.params.set('ts', timestamp)
