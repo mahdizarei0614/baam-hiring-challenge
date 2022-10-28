@@ -3,7 +3,6 @@
   "characterOverview": "بررسی",
   "comics": "کامیک‌ها",
   "movies": "فیلم‌ها",
-  "menu": "منو",
   "emailLabel": "ایمیل",
   "passwordLabel": "پسورد",
   "emailInvalidError": "لطفا ,ایمیل را با فرمت درست وارد کنید.",
@@ -11,5 +10,11 @@
   "passwordRequiredError": "پسورد <strong>ضروری</strong> است.",
   "loginButtonText": "ورود",
   "searchIn": "جستجو در",
-  "noResultPhrase": "نتیجه‌ای یافت نشد."
+  "noResultPhrase": "نتیجه‌ای یافت نشد.",
+  "langSwitchTooltip": "تغییر زبان",
+  "lightModeTooltip": "تم روشن",
+  "darkModeTooltip": "تم تاریک",
+  "menuTooltip": "منو",
+  "searchTooltip": "جستجو",
+  "cancelSearchTooltip": "لغو جستجو"
 }

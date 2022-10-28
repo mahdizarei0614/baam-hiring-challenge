@@ -3,7 +3,6 @@
   "characterOverview": "Overview",
   "comics": "Comics",
   "movies": "Movies",
-  "menu": "Menu",
   "emailLabel": "Email",
   "passwordLabel": "Password",
   "emailInvalidError": "Please enter a valid email address",
@@ -11,5 +10,11 @@
   "passwordRequiredError": "Password is <strong>required</strong>",
   "loginButtonText": "Login",
   "searchIn": "Search in",
-  "noResultPhrase": "No result found."
+  "noResultPhrase": "No result found.",
+  "langSwitchTooltip": "Change Language",
+  "lightModeTooltip": "Light Mode",
+  "darkModeTooltip": "Dark Mode",
+  "menuTooltip": "Menu",
+  "searchTooltip": "Search",
+  "cancelSearchTooltip": "Cancel Search"
 }
