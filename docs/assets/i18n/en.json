@@ -10,5 +10,6 @@
   "emailRequiredError": "Email is <strong>required</strong>",
   "passwordRequiredError": "Password is <strong>required</strong>",
   "loginButtonText": "Login",
-  "searchbarPlaceholder": "Search"
+  "searchIn": "Search in",
+  "noResultPhrase": "No result found."
 }

@@ -10,5 +10,6 @@
   "emailRequiredError": "ایمیل <strong>ضروری</strong> است.",
   "passwordRequiredError": "پسورد <strong>ضروری</strong> است.",
   "loginButtonText": "ورود",
-  "searchbarPlaceholder": "جستجو کردن"
+  "searchIn": "جستجو در",
+  "noResultPhrase": "نتیجه‌ای یافت نشد."
 }
