@@ -16,4 +16,14 @@ export class LangSwitchComponent {
     });
   }
 
+  public getLangTitle(lang: string) {
+    switch (lang) {
+      case 'fa':
+        return 'فارسی';
+      case 'en':
+        return 'English';
+      default:
+        return 'English'
+    }
+  }
 }

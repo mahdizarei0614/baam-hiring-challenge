@@ -6,7 +6,7 @@
           *ngFor="let lang of translate.getLangs()"
           (click)="translate.use(lang)"
           [disabled]="lang === translate.currentLang">
-    <mat-icon>flag</mat-icon>
-    <span>{{lang}}</span>
+    <mat-icon [class.invisible]="lang !== translate.currentLang">check</mat-icon>
+    <span>{{getLangTitle(lang)}}</span>
   </button>
 </mat-menu>
