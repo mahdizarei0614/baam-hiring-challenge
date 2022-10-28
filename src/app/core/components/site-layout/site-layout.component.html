@@ -2,7 +2,7 @@
 <mat-sidenav-container class="block page-full">
   <mat-sidenav #sidenav class="min-w-[240px]" position="start" [mode]="getSidenavMode">
     <div class="flex flex-col h-full">
-      <mat-toolbar color="accent">
+      <mat-toolbar color="accent" class="max-h-[56px] min-h-[56px]">
         <mat-toolbar-row>
           <div class="w-full h-full flex justify-start items-center">
             <mat-icon [class]="'scale-150' + (currentLangRef.value === 'fa' ? ' ml-4' : ' mr-4')">account_circle</mat-icon>
