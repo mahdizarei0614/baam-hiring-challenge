@@ -9,6 +9,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {MAT_TOOLTIP_DEFAULT_OPTIONS} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,16 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     TranslateModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_TOOLTIP_DEFAULT_OPTIONS,
+      useValue: {
+        showDelay: 500,
+        hideDelay: 0,
+        touchendHideDelay: 1500,
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

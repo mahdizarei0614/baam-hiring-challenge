@@ -22,6 +22,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {RouterModule} from "@angular/router";
 import {LoadingInterceptor} from "./interceptors/loading.interceptor";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -37,19 +38,20 @@ import {LoadingInterceptor} from "./interceptors/loading.interceptor";
     LoadingComponent,
     ThemeSwitchComponent
   ],
-  imports: [
-    CommonModule,
-    I18nModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatIconModule,
-    MatSlideToggleModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatListModule,
-    RouterModule
-  ],
+    imports: [
+        CommonModule,
+        I18nModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatIconModule,
+        MatSlideToggleModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatListModule,
+        RouterModule,
+        MatTooltipModule
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true},

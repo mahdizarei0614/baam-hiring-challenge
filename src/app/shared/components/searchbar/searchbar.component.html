@@ -3,6 +3,7 @@
        [placeholder]="placeholder"
        (input)="OnInput.emit(input.value)">
 <button mat-icon-button aria-label="Clear"
+        [matTooltip]="'cancelSearchTooltip' | translate"
         (click)="OnClear.emit()">
   <mat-icon>close</mat-icon>
 </button>

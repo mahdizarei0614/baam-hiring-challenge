@@ -3,7 +3,9 @@
                    class="opacity-100 absolute inset-0 max-h-14 min-h-[56px]">
     <span>{{toolbarTitleKey | translate}}</span>
     <div class="grow"></div>
-    <button *ngIf="hasSearchbar" mat-icon-button (click)="showSearchbar = true;">
+    <button *ngIf="hasSearchbar" mat-icon-button
+            [matTooltip]="'searchTooltip' | translate"
+            (click)="showSearchbar = true;">
       <mat-icon class="text-white">search</mat-icon>
     </button>
   </mat-toolbar-row>
