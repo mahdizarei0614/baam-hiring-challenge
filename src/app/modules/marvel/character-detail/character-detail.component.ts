@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {CharacterModel} from "../../../shared/services/apis/characters.service";
+import {CharacterModel, CharactersService} from "../../../shared/services/apis/characters.service";
 import {currentLang} from "../../../app.component";
 import {Location} from "@angular/common";
 
@@ -14,6 +14,7 @@ export class CharacterDetailComponent implements OnInit {
   public currentLangRef = currentLang;
 
   constructor(private activatedRoute: ActivatedRoute,
+              public charactersService: CharactersService,
               public $location: Location) {
   }
 
@@ -23,4 +24,7 @@ export class CharacterDetailComponent implements OnInit {
     });
   }
 
+  public capitalizeFirstLetter(str: string) {
+    return str[0].toUpperCase() + str.substr(1);
+  }
 }

@@ -11,13 +11,18 @@ export class ComicsService {
   constructor(private http: HttpClient) {
   }
 
-  get(offset = 0, limit = 10, titleStartsWith: string = ''): Observable<RequestResponseModel> {
+  get(offset = 0, limit = 10, titleStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
     const params: any = {
       offset,
       limit
     }
     if (titleStartsWith?.length) {
       params.titleStartsWith = titleStartsWith
+    }
+    if (additionalQueryParams) {
+      Object.entries(additionalQueryParams).forEach(([key, value]) => {
+        params[key] = value;
+      });
     }
     return this.http.get<RequestResponseModel>('comics', {
       params

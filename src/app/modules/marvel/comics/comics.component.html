@@ -1,28 +1,15 @@
 <div #comicsPage class="page-full overflow-y-auto">
-  <app-toolbar
-    toolbarTitleKey="comics"
+  <app-infinite-scroll-cards
+    [hasToolbar]="true"
     [hasSearchbar]="true"
-    (OnSearchbarClear)="hideSearchbar()"
-    (OnSearchbarInput)="inputSearchbar(); searchbarValue = $event"></app-toolbar>
-  <div class="p-4 max-w-lg m-auto"
-       infiniteScroll
-       [infiniteScrollDistance]="2"
-       [infiniteScrollThrottle]="50"
-       [infiniteScrollContainer]="comicsPage"
-       (scrolled)="getNextList(comics.length, 10, searchbarValue)">
-    <a class="block" href="javascript:void(0)"
-       *ngFor="let comic of comics; let index = index"
-       [routerLink]="['', 'landing', 'comics', comic.id]">
-      <app-card-simple [title]="comic.title"
-                       [subtitle]="(comic.modified | datePipe) || ''"
-                       [img]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
-                       [description]="comic.description"
-                       [descEllipsis]="true"
-                       [largeImage]="true"
-                       class="block" [class.mb-4]="index !== (comics.length - 1)"></app-card-simple>
-    </a>
-  </div>
-  <app-no-result *ngIf="!comics.length"></app-no-result>
+    toolbarTitleKey="comics"
+    [infiniteScrollContainerRef]="comicsPage"
+    [apiServiceRef]="comicsService"
+    serviceFuncName="get"
+    [initialItems]="comics"
+    [cardRouterLinkPrefixPath]="['', 'landing', 'comics']"
+    [itemTitleKey]="'title'"
+  ></app-infinite-scroll-cards>
 </div>
 
 

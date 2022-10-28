@@ -6,6 +6,7 @@ import {BehaviorSubject} from "rxjs";
 })
 export class LoadingService {
   public isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public disableLoadingOnNextAjax: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor() {
   }

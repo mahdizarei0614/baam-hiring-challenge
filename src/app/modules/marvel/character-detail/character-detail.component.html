@@ -1,55 +1,135 @@
-<mat-toolbar color="accent" class="sticky top-0 z-10">
-  <mat-toolbar-row>
-    <button mat-icon-button aria-label="Back button" (click)="$location.back()">
-      <mat-icon>
-        {{currentLangRef.value === 'fa' ? 'keyboard_arrow_right' : 'keyboard_arrow_left'}}
-      </mat-icon>
-    </button>
-    <span>{{'charactersList' | translate}}:</span>
-    &nbsp;
-    <span>{{character.name}}</span>
-    <div class="grow"></div>
-  </mat-toolbar-row>
-</mat-toolbar>
-<div class="py-4 max-w-lg m-auto">
-  <img class="w-60 h-60 rounded-full m-auto mb-4"
-       [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
-       [alt]="'Image of ' + character.name">
-  <h1 class="text-center">{{character.name}}</h1>
-  <mat-tab-group>
-    <mat-tab>
-      <ng-template mat-tab-label>
-        <mat-icon class="example-tab-icon">info</mat-icon>
-        &nbsp;
-        {{'characterOverview' | translate}}
-      </ng-template>
-      <p class="p-4">
-        {{character.description}}
-      </p>
-    </mat-tab>
-    <mat-tab>
-      <ng-template mat-tab-label>
-        <mat-icon class="example-tab-icon">library_books</mat-icon>
-        &nbsp;
-        {{'comics' | translate}}
-      </ng-template>
-      <mat-selection-list [multiple]="false">
-        <mat-list-option *ngFor="let comic of character.comics.items" [value]="comic.name">
-          {{comic.name}}
-        </mat-list-option>
-      </mat-selection-list>
-    </mat-tab>
-    <mat-tab>
-      <ng-template mat-tab-label>
-        <mat-icon class="example-tab-icon">movie</mat-icon>
-        &nbsp;
-        {{'movies' | translate}}
-      </ng-template>
-      <mat-selection-list [multiple]="false">
-        <mat-list-option *ngFor="let series of character.series.items" [value]="series.name">
-          {{series.name}}
-        </mat-list-option>
-      </mat-selection-list>
-    </mat-tab>
-  </mat-tab-group>
+<div #infiniteScrollContainer class="page-full overflow-y-auto">
+  <mat-toolbar color="accent" class="sticky top-0 z-10">
+    <mat-toolbar-row>
+      <button mat-icon-button aria-label="Back button" [matTooltip]="'backButtonTooltip' | translate" (click)="$location.back()">
+        <mat-icon>
+          {{currentLangRef.value === 'fa' ? 'keyboard_arrow_right' : 'keyboard_arrow_left'}}
+        </mat-icon>
+      </button>
+      <span>{{'charactersList' | translate}}:</span>
+      &nbsp;
+      <span>{{character.name}}</span>
+      <div class="grow"></div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="py-4 max-w-lg m-auto">
+    <img class="w-60 h-60 rounded-full m-auto mb-4"
+         [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+         [alt]="'Image of ' + character.name">
+    <h1 class="text-center">{{character.name}}</h1>
+    <div class="flex justify-center m-auto my-4">
+      <mat-chip-list class="mx-2">
+        <mat-chip *ngFor="let url of character.urls" color="primary">
+          <a class="flex items-center" [href]="url.url" target="_blank">
+            {{capitalizeFirstLetter(url.type)}}
+            <mat-icon [ngClass]="{
+            'ml-1': currentLangRef.value === 'en',
+            'mr-1': currentLangRef.value === 'fa'
+            }">link</mat-icon>
+          </a>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <mat-tab-group dynamicHeight>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">info</mat-icon>
+          &nbsp;
+          {{'characterOverview' | translate}}
+        </ng-template>
+        <div class="py-2">
+          <p>
+            <strong>Description:</strong>
+            {{character.description ? character.description : 'Unknown'}}
+          </p>
+          <p>
+            <strong>Modified:</strong>
+            {{character.modified | datePipe}}
+          </p>
+          <p>
+            <strong>Comics Count:</strong>
+            {{character.comics.available}}
+          </p>
+          <p>
+            <strong>Series Count:</strong>
+            {{character.series.available}}
+          </p>
+          <p>
+            <strong>Stories Count:</strong>
+            {{character.stories.available}}
+          </p>
+          <p>
+            <strong>Events Count:</strong>
+            {{character.events.available}}
+          </p>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">library_books</mat-icon>
+          &nbsp;
+          {{'comics' | translate}}
+        </ng-template>
+        <app-infinite-scroll-cards
+          [hasToolbar]="false"
+          [infiniteScrollContainerRef]="infiniteScrollContainer"
+          [apiServiceRef]="charactersService"
+          serviceFuncName="getCharacterComics"
+          [additionalAjaxQueries]="{characterId: character.id}"
+          [initialItems]="[]"
+          [itemTitleKey]="'title'"
+        ></app-infinite-scroll-cards>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">movie</mat-icon>
+          &nbsp;
+          {{'movies' | translate}}
+        </ng-template>
+        <app-infinite-scroll-cards
+          [hasToolbar]="false"
+          [infiniteScrollContainerRef]="infiniteScrollContainer"
+          [apiServiceRef]="charactersService"
+          serviceFuncName="getCharacterSeries"
+          [additionalAjaxQueries]="{characterId: character.id}"
+          [initialItems]="[]"
+          [itemTitleKey]="'title'"
+        ></app-infinite-scroll-cards>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">book</mat-icon>
+          &nbsp;
+          {{'stories' | translate}}
+        </ng-template>
+        <app-infinite-scroll-cards
+          [hasToolbar]="false"
+          [simpleView]="true"
+          [infiniteScrollContainerRef]="infiniteScrollContainer"
+          [apiServiceRef]="charactersService"
+          serviceFuncName="getCharacterStories"
+          [additionalAjaxQueries]="{characterId: character.id}"
+          [initialItems]="[]"
+          [itemTitleKey]="'title'"
+        ></app-infinite-scroll-cards>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">event</mat-icon>
+          &nbsp;
+          {{'events' | translate}}
+        </ng-template>
+        <app-infinite-scroll-cards
+          [hasToolbar]="false"
+          [simpleView]="true"
+          [infiniteScrollContainerRef]="infiniteScrollContainer"
+          [apiServiceRef]="charactersService"
+          serviceFuncName="getCharacterEvents"
+          [additionalAjaxQueries]="{characterId: character.id}"
+          [initialItems]="[]"
+          [itemTitleKey]="'title'"
+        ></app-infinite-scroll-cards>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
 </div>

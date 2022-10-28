@@ -1,0 +1,32 @@
+<app-toolbar *ngIf="hasToolbar"
+  [toolbarTitleKey]="toolbarTitleKey"
+  [hasSearchbar]="hasSearchbar"
+  (OnSearchbarClear)="hideSearchbar()"
+  (OnSearchbarInput)="inputSearchbar(); searchbarValue = $event"></app-toolbar>
+<div class="p-4 max-w-lg m-auto"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="50"
+     [infiniteScrollContainer]="infiniteScrollContainerRef"
+     (scrolled)="getNextList(items.length, 10, searchbarValue)">
+  <mat-selection-list *ngIf="simpleView" [multiple]="false">
+    <mat-list-option
+      *ngFor="let item of items; let index = index" [value]="item[itemTitleKey]">
+      {{item[itemTitleKey]}}
+    </mat-list-option>
+  </mat-selection-list>
+  <ng-container *ngIf="!simpleView">
+    <a class="block" href="javascript:void(0)"
+       *ngFor="let item of items; let index = index"
+       [routerLink]="getRouterLink(item)">
+      <app-card-simple [title]="item[itemTitleKey]"
+                       [subtitle]="(item.modified | datePipe) || ''"
+                       [img]="item.thumbnail.path + '.' + item.thumbnail.extension"
+                       [description]="item.description"
+                       [descEllipsis]="true"
+                       [largeImage]="cardLargeImage"
+                       class="block" [class.mb-4]="index !== (items.length - 1)"></app-card-simple>
+    </a>
+  </ng-container>
+</div>
+<app-no-result *ngIf="!items.length"></app-no-result>

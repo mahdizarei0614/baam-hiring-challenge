@@ -15,6 +15,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {FormsModule} from "@angular/forms";
     MatButtonModule,
     InfiniteScrollModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatChipsModule,
+    MatTooltipModule
   ]
 })
 export class MarvelModule {
