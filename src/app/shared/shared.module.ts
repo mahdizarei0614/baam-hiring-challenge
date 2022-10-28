@@ -5,19 +5,31 @@ import {MatCardModule} from "@angular/material/card";
 import {DatePipe} from './pipes/date.pipe';
 import { NoResultComponent } from './components/no-result/no-result.component';
 import {TranslateModule} from "@ngx-translate/core";
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 
 @NgModule({
-  declarations: [CardSimpleComponent, DatePipe, NoResultComponent],
-    exports: [
-        CardSimpleComponent,
-        DatePipe,
-        NoResultComponent
-    ],
+  declarations: [CardSimpleComponent, DatePipe, NoResultComponent, SearchbarComponent, ToolbarComponent],
+  exports: [
+    CardSimpleComponent,
+    DatePipe,
+    NoResultComponent,
+    SearchbarComponent,
+    ToolbarComponent
+  ],
   imports: [
     CommonModule,
     MatCardModule,
-    TranslateModule
+    TranslateModule,
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule,
+    MatToolbarModule
   ]
 })
 export class SharedModule {

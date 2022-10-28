@@ -1,0 +1,21 @@
+<mat-toolbar color="accent" class="sticky top-0 z-10 max-h-14 min-h-[56px]" style="padding: 0">
+  <mat-toolbar-row *ngIf="!showSearchbar" [@inOutAnimation]
+                   class="opacity-100 absolute inset-0 max-h-14 min-h-[56px]">
+    <span>{{toolbarTitleKey | translate}}</span>
+    <div class="grow"></div>
+    <button *ngIf="hasSearchbar" mat-icon-button (click)="showSearchbar = true;">
+      <mat-icon class="text-white">search</mat-icon>
+    </button>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="hasSearchbar && showSearchbar" [@inOutAnimation]
+                   class="opacity-100 absolute inset-0 max-h-14 min-h-[56px]">
+    <div class="w-full h-full py-3 flex items-center">
+      <span *ngIf="isDesktopRef.value">{{toolbarTitleKey | translate}}</span>
+      <div class="sm:grow"></div>
+      <app-searchbar class="flex h-full items-center grow sm:grow-0 min-w-[248px] sm:min-w-auto"
+                     [placeholder]="('searchIn' | translate) + ' ' + (toolbarTitleKey | translate)"
+                     (OnInput)="OnSearchbarInput.emit($event)"
+                     (OnClear)="showSearchbar = false; OnSearchbarClear.emit()"></app-searchbar>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

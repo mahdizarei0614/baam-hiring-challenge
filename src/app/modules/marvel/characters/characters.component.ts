@@ -2,21 +2,16 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CharacterModel, CharactersService} from "../../../shared/services/apis/characters.service";
 import {Subscription} from "rxjs";
-import {Animations} from "../../../shared/configs";
-import {isDesktop} from "../../../app.component";
 
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.scss'],
-  animations: [Animations.inOutAnimation]
+  styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit, OnDestroy {
   public characters: CharacterModel[] = [];
   public subscription = Subscription.EMPTY;
-  public showSearchbar = false;
   public searchbarValue = '';
-  public isDesktopRef = isDesktop;
   private searchTimeout: any;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -52,7 +47,6 @@ export class CharactersComponent implements OnInit, OnDestroy {
     if (this.searchbarValue?.length) {
       this.getNextList(0, 10)
     }
-    this.showSearchbar = false;
     this.searchbarValue = '';
   }
 

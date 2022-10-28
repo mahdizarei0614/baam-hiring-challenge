@@ -2,21 +2,16 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ComicModel, ComicsService} from "../../../shared/services/apis/comics.service";
 import {Subscription} from "rxjs";
-import {isDesktop} from "../../../app.component";
-import {Animations} from "../../../shared/configs";
 
 @Component({
   selector: 'app-comics',
   templateUrl: './comics.component.html',
-  styleUrls: ['./comics.component.scss'],
-  animations: [Animations.inOutAnimation]
+  styleUrls: ['./comics.component.scss']
 })
 export class ComicsComponent implements OnInit, OnDestroy {
   public comics: ComicModel[] = [];
   public subscription = Subscription.EMPTY;
-  public showSearchbar = false;
   public searchbarValue = '';
-  public isDesktopRef = isDesktop;
   private searchTimeout: any;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -52,7 +47,6 @@ export class ComicsComponent implements OnInit, OnDestroy {
     if (this.searchbarValue?.length) {
       this.getNextList(0, 10)
     }
-    this.showSearchbar = false;
     this.searchbarValue = '';
   }
 

@@ -1,0 +1,8 @@
+<input matInput #input type="text" class="h-full rounded-full grow sm:grow-0 py-2 px-4 min-w-[248px] sm:min-w-auto"
+       style="background: rgba(255, 255, 255, .3)"
+       [placeholder]="placeholder"
+       (input)="OnInput.emit(input.value)">
+<button mat-icon-button aria-label="Clear"
+        (click)="OnClear.emit()">
+  <mat-icon>close</mat-icon>
+</button>
