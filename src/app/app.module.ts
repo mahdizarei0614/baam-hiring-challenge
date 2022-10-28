@@ -10,6 +10,8 @@ import {MatListModule} from "@angular/material/list";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MAT_TOOLTIP_DEFAULT_OPTIONS} from "@angular/material/tooltip";
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,13 @@ import {MAT_TOOLTIP_DEFAULT_OPTIONS} from "@angular/material/tooltip";
     MatSidenavModule,
     MatListModule,
     TranslateModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     {

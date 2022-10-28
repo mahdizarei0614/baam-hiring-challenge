@@ -34,10 +34,16 @@
     "libsDir": "projects"
   },
   "cli": {
-    "analytics": "7bbe2d88-9e20-4f5f-bc90-289ba5eaacfb",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "analytics": "7bbe2d88-9e20-4f5f-bc90-289ba5eaacfb"
   },
-  "defaultProject": "baam-hiring-challenge"
+  "defaultProject": "baam-hiring-challenge",
+  "generators": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  }
 }
