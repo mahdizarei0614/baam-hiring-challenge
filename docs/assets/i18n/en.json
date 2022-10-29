@@ -5,6 +5,7 @@
   "movies": "Movies",
   "stories": "Stories",
   "events": "Events",
+  "creators": "Creators",
   "emailLabel": "Email",
   "passwordLabel": "Password",
   "emailInvalidError": "Please enter a valid email address",

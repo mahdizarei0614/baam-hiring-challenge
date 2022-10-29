@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CharacterDetailResolver } from './character-detail.resolver';
+import { CharacterDetailsResolver } from './character-details.resolver';
 
 describe('CharacterDetailResolver', () => {
-  let resolver: CharacterDetailResolver;
+  let resolver: CharacterDetailsResolver;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    resolver = TestBed.inject(CharacterDetailResolver);
+    resolver = TestBed.inject(CharacterDetailsResolver);
   });
 
   it('should be created', () => {

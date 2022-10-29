@@ -1,7 +1,7 @@
 <input matInput #input type="text" class="h-full rounded-full grow sm:grow-0 py-2 px-4 min-w-[248px] sm:min-w-auto"
        style="background: rgba(255, 255, 255, .3)"
        [placeholder]="placeholder"
-       (input)="OnInput.emit(input.value)">
+       (input)="OnInput.emit(input.value)" autofocus>
 <button mat-icon-button aria-label="Clear"
         [matTooltip]="'cancelSearchTooltip' | translate"
         (click)="OnClear.emit()">

@@ -5,6 +5,7 @@
   "movies": "فیلم‌ها",
   "stories": "داستان‌ها",
   "events": "رویداد‌ها",
+  "creators": "سازندگان",
   "emailLabel": "ایمیل",
   "passwordLabel": "پسورد",
   "emailInvalidError": "لطفا ,ایمیل را با فرمت درست وارد کنید.",

@@ -12,6 +12,40 @@ export class ComicsService {
   }
 
   get(offset = 0, limit = 10, titleStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
+    return this.http.get<RequestResponseModel>('comics', {
+      params: this.defaultPrepareParams(offset, limit, titleStartsWith, additionalQueryParams)
+    });
+  }
+
+  getById(comicId: number): Observable<RequestResponseModel> {
+    return this.http.get<RequestResponseModel>(`comics/${comicId}`);
+  }
+
+  getComicsCreators(offset = 0, limit = 10, titleStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
+    return this.http.get<RequestResponseModel>(`comics/${additionalQueryParams.comicId}/creators`, {
+      params: this.defaultPrepareParams(offset, limit, titleStartsWith, additionalQueryParams)
+    });
+  }
+
+  getComicsCharacters(offset = 0, limit = 10, titleStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
+    return this.http.get<RequestResponseModel>(`comics/${additionalQueryParams.comicId}/characters`, {
+      params: this.defaultPrepareParams(offset, limit, titleStartsWith, additionalQueryParams)
+    });
+  }
+
+  getComicsStories(offset = 0, limit = 10, titleStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
+    return this.http.get<RequestResponseModel>(`comics/${additionalQueryParams.comicId}/stories`, {
+      params: this.defaultPrepareParams(offset, limit, titleStartsWith, additionalQueryParams)
+    });
+  }
+
+  getComicsEvents(offset = 0, limit = 10, titleStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
+    return this.http.get<RequestResponseModel>(`comics/${additionalQueryParams.comicId}/events`, {
+      params: this.defaultPrepareParams(offset, limit, titleStartsWith, additionalQueryParams)
+    });
+  }
+
+  private defaultPrepareParams(offset: number, limit: number, titleStartsWith: string, additionalQueryParams: any) {
     const params: any = {
       offset,
       limit
@@ -21,12 +55,12 @@ export class ComicsService {
     }
     if (additionalQueryParams) {
       Object.entries(additionalQueryParams).forEach(([key, value]) => {
-        params[key] = value;
+        if (key !== 'comicId') {
+          params[key] = value;
+        }
       });
     }
-    return this.http.get<RequestResponseModel>('comics', {
-      params
-    });
+    return params;
   }
 }
 

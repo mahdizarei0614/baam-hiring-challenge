@@ -1,0 +1,77 @@
+<div #infiniteScrollContainer class="page-full overflow-y-auto">
+  <mat-toolbar color="accent" class="sticky top-0 z-10 max-h-[56px] min-h-[56px]">
+    <mat-toolbar-row>
+      <button mat-icon-button aria-label="Back button" [matTooltip]="'backButtonTooltip' | translate"
+              (click)="$location.back()">
+        <mat-icon>
+          {{currentLangRef.value === 'fa' ? 'keyboard_arrow_right' : 'keyboard_arrow_left'}}
+        </mat-icon>
+      </button>
+      <span>{{'comics' | translate}}:</span>
+      &nbsp;
+      <span>{{comic.title}}</span>
+      <div class="grow"></div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="py-4 max-w-lg m-auto">
+    <img class="w-60 h-60 rounded-full m-auto mb-4"
+         [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+         [alt]="'Image of ' + comic.title">
+    <h1 class="text-center">{{comic.title}}</h1>
+    <div class="flex justify-center m-auto my-4">
+      <mat-chip-list class="mx-2">
+        <mat-chip *ngFor="let url of comic.urls" color="primary">
+          <a class="flex items-center" [href]="url.url" target="_blank">
+            {{capitalizeFirstLetter(url.type)}}
+            <mat-icon [ngClass]="{
+            'ml-1': currentLangRef.value === 'en',
+            'mr-1': currentLangRef.value === 'fa'
+            }">link
+            </mat-icon>
+          </a>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <mat-tab-group dynamicHeight>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">info</mat-icon>
+          &nbsp;
+          {{'characterOverview' | translate}}
+        </ng-template>
+        <div class="p-4">
+          <p>
+            <strong>Description:</strong>
+            {{comic.description ? comic.description : 'Unknown'}}
+          </p>
+          <p>
+            <strong>Modified:</strong>
+            {{comic.modified | datePipe}}
+          </p>
+          <p *ngFor="let tab of tabs">
+            <strong>{{capitalizeFirstLetter(tab.availabilityKey)}} Count:</strong>
+            {{getTabAvailableItems(tab)}}
+          </p>
+        </div>
+      </mat-tab>
+      <ng-container *ngFor="let tab of tabs">
+        <mat-tab *ngIf="getTabAvailableItems(tab) > 0">
+          <ng-template mat-tab-label>
+            <mat-icon>{{tab.icon}}</mat-icon>
+            &nbsp;
+            {{tab.titleTranslateKey | translate}}
+          </ng-template>
+          <app-infinite-scroll-cards
+            [hasToolbar]="false"
+            [infiniteScrollContainerRef]="infiniteScrollContainer"
+            [apiServiceRef]="comicsService"
+            [serviceFuncName]="tab.serviceFuncName"
+            [additionalAjaxQueries]="{comicId: comic.id}"
+            [initialItems]="[]"
+            [itemTitleKey]="tab.itemTitleKey"
+          ></app-infinite-scroll-cards>
+        </mat-tab>
+      </ng-container>
+    </mat-tab-group>
+  </div>
+</div>

@@ -6,7 +6,7 @@ import {MatCardModule} from "@angular/material/card";
 import {SharedModule} from "../../shared/shared.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {CharacterDetailComponent} from './character-detail/character-detail.component';
+import {CharacterDetailsComponent} from './character-details/character-details.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
 import {ComicsComponent} from './comics/comics.component';
@@ -17,12 +17,14 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {ComicDetailsComponent} from './comic-details/comic-details.component';
 
 @NgModule({
   declarations: [
     CharactersComponent,
-    CharacterDetailComponent,
-    ComicsComponent
+    CharacterDetailsComponent,
+    ComicsComponent,
+    ComicDetailsComponent
   ],
   imports: [
     CommonModule,

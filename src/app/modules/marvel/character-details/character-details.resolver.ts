@@ -13,7 +13,7 @@ import {
 @Injectable({
   providedIn: 'root'
 })
-export class CharacterDetailResolver implements Resolve<CharacterModel> {
+export class CharacterDetailsResolver implements Resolve<CharacterModel> {
   constructor(private charactersService: CharactersService) {
   }
 

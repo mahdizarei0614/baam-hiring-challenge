@@ -21,7 +21,7 @@
        [routerLink]="getRouterLink(item)">
       <app-card-simple [title]="item[itemTitleKey]"
                        [subtitle]="(item.modified | datePipe) || ''"
-                       [img]="item.thumbnail.path + '.' + item.thumbnail.extension"
+                       [img]="item.thumbnail ? (item.thumbnail.path + '.' + item.thumbnail.extension) : ''"
                        [description]="item.description"
                        [descEllipsis]="true"
                        [largeImage]="cardLargeImage"

@@ -2,10 +2,12 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CharactersComponent} from "./characters/characters.component";
 import {CharactersResolver} from "./characters/characters.resolver";
-import {CharacterDetailComponent} from "./character-detail/character-detail.component";
-import {CharacterDetailResolver} from "./character-detail/character-detail.resolver";
+import {CharacterDetailsComponent} from "./character-details/character-details.component";
+import {CharacterDetailsResolver} from "./character-details/character-details.resolver";
 import {ComicsComponent} from "./comics/comics.component";
 import {ComicsResolver} from "./comics/comics.resolver";
+import {ComicDetailsComponent} from "./comic-details/comic-details.component";
+import {ComicDetailsResolver} from "./comic-details/comic-details.resolver";
 
 const routes: Routes = [
   {
@@ -29,9 +31,16 @@ const routes: Routes = [
   },
   {
     path: 'characters/:id',
-    component: CharacterDetailComponent,
+    component: CharacterDetailsComponent,
     resolve: {
-      character: CharacterDetailResolver
+      character: CharacterDetailsResolver
+    }
+  },
+  {
+    path: 'comics/:id',
+    component: ComicDetailsComponent,
+    resolve: {
+      comic: ComicDetailsResolver
     }
   }
 ];

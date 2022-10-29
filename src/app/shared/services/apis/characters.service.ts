@@ -12,20 +12,8 @@ export class CharactersService {
   }
 
   get(offset = 0, limit = 10, nameStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
-    const params: any = {
-      offset,
-      limit
-    }
-    if (nameStartsWith?.length) {
-      params.nameStartsWith = nameStartsWith
-    }
-    if (additionalQueryParams) {
-      Object.entries(additionalQueryParams).forEach(([key, value]) => {
-        params[key] = value;
-      });
-    }
     return this.http.get<RequestResponseModel>('characters', {
-      params
+      params: this.defaultPrepareParams(offset, limit, nameStartsWith, additionalQueryParams)
     });
   }
 
@@ -34,66 +22,30 @@ export class CharactersService {
   }
 
   getCharacterComics(offset = 0, limit = 10, nameStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
-    const params: any = {
-      offset,
-      limit
-    }
-    if (nameStartsWith?.length) {
-      params.nameStartsWith = nameStartsWith
-    }
-    if (additionalQueryParams) {
-      Object.entries(additionalQueryParams).forEach(([key, value]) => {
-        if (key !== 'characterId') {
-          params[key] = value;
-        }
-      });
-    }
     return this.http.get<RequestResponseModel>(`characters/${additionalQueryParams.characterId}/comics`, {
-      params
+      params: this.defaultPrepareParams(offset, limit, nameStartsWith, additionalQueryParams)
     });
   }
 
   getCharacterSeries(offset = 0, limit = 10, nameStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
-    const params: any = {
-      offset,
-      limit
-    }
-    if (nameStartsWith?.length) {
-      params.nameStartsWith = nameStartsWith
-    }
-    if (additionalQueryParams) {
-      Object.entries(additionalQueryParams).forEach(([key, value]) => {
-        if (key !== 'characterId') {
-          params[key] = value;
-        }
-      });
-    }
     return this.http.get<RequestResponseModel>(`characters/${additionalQueryParams.characterId}/series`, {
-      params
+      params: this.defaultPrepareParams(offset, limit, nameStartsWith, additionalQueryParams)
     });
   }
 
   getCharacterStories(offset = 0, limit = 10, nameStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
-    const params: any = {
-      offset,
-      limit
-    }
-    if (nameStartsWith?.length) {
-      params.nameStartsWith = nameStartsWith
-    }
-    if (additionalQueryParams) {
-      Object.entries(additionalQueryParams).forEach(([key, value]) => {
-        if (key !== 'characterId') {
-          params[key] = value;
-        }
-      });
-    }
     return this.http.get<RequestResponseModel>(`characters/${additionalQueryParams.characterId}/stories`, {
-      params
+      params: this.defaultPrepareParams(offset, limit, nameStartsWith, additionalQueryParams)
     });
   }
 
   getCharacterEvents(offset = 0, limit = 10, nameStartsWith: string = '', additionalQueryParams: any = null): Observable<RequestResponseModel> {
+    return this.http.get<RequestResponseModel>(`characters/${additionalQueryParams.characterId}/events`, {
+      params: this.defaultPrepareParams(offset, limit, nameStartsWith, additionalQueryParams)
+    });
+  }
+
+  private defaultPrepareParams(offset: number, limit: number, nameStartsWith: string, additionalQueryParams: any) {
     const params: any = {
       offset,
       limit
@@ -108,9 +60,7 @@ export class CharactersService {
         }
       });
     }
-    return this.http.get<RequestResponseModel>(`characters/${additionalQueryParams.characterId}/events`, {
-      params
-    });
+    return params;
   }
 }
 
