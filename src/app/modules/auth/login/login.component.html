@@ -13,7 +13,7 @@
       </mat-form-field>
       <mat-form-field class="w-full" appearance="fill">
         <mat-label>{{'passwordLabel' | translate}}</mat-label>
-        <input name="password" type="password" matInput [formControl]="passwordFormControl" placeholder="Password">
+        <input name="password" type="password" matInput [formControl]="passwordFormControl" placeholder="{{'passwordLabel' | translate}}">
         <mat-error *ngIf="passwordFormControl.hasError('required')"
                    [innerHTML]="'passwordRequiredError' | translate"></mat-error>
       </mat-form-field>
@@ -22,5 +22,5 @@
       </button>
     </form>
   </div>
-  <app-lang-switch class="absolute top-4 right-4"></app-lang-switch>
+  <app-lang-switch class="absolute top-4 right-4 text-white"></app-lang-switch>
 </div>

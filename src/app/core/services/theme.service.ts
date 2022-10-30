@@ -14,7 +14,10 @@ export class ThemeService {
       this.isDarkTheme.next(false);
     }
     this.isDarkTheme.asObservable().subscribe((res) => {
-      const favoriteTheme = localStorage.getItem('favoriteTheme')
+      let favoriteTheme = localStorage.getItem('favoriteTheme') as string;
+      if (favoriteTheme === 'null') {
+        favoriteTheme = ThemeEnum.Marvel;
+      }
       if (res) {
         localStorage.setItem('isDarkTheme', 'true');
         this.changeTheme(favoriteTheme as string);
@@ -28,6 +31,10 @@ export class ThemeService {
   changeTheme(key: string) {
     localStorage.setItem('favoriteTheme', key);
     const isLight = localStorage.getItem('isDarkTheme') !== 'true';
+    this.setTheme(key, isLight);
+  }
+
+  setTheme(key: string, isLight: boolean) {
     getWindow()?.document.getElementById('theme-link-element')
       ?.setAttribute('href', `assets/theme/${key}${isLight ? '-light' : ''}-theme.css`);
   }

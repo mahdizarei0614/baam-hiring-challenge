@@ -18,6 +18,7 @@
                          [selected]="isSidenavItemSelected(item)"
                          [value]="item.label"
                          (click)="sidenavItemLink(item, sidenav)">
+          <mat-icon *ngIf="item.icon" mat-list-icon>{{item.icon}}</mat-icon>
           {{item.label | translate}}
         </mat-list-option>
       </mat-selection-list>
@@ -26,7 +27,8 @@
         <mat-list-option *ngFor="let item of systemItems"
                          [selected]="isSidenavItemSelected(item)"
                          [value]="item.label"
-                         (click)="item.link ? sidenavItemLink(item, sidenav) : sidenavItemAction(item, sidenav)">
+                         (click)="item.link?.length ? sidenavItemLink(item, sidenav) : sidenavItemAction(item, sidenav)">
+          <mat-icon *ngIf="item.icon" mat-list-icon>{{item.icon}}</mat-icon>
           {{item.label | translate}}
         </mat-list-option>
       </mat-selection-list>

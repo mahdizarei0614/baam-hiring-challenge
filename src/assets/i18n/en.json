@@ -28,5 +28,9 @@
   "spiderMan": "Spider-Man",
   "ironMan": "Iron-Man",
   "blackPanther": "Black Panther",
-  "hulk": "Hulk"
+  "hulk": "Hulk",
+  "logout": "Logout",
+  "logoutPhrase": "Do you want to logout?",
+  "cancelButton": "Cancel",
+  "confirmButton": "Confirm"
 }

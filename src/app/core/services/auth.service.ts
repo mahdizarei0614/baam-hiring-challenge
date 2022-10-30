@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Md5} from "md5-typescript";
 import {Observable} from "rxjs";
 import {IUserModel} from "../../shared/services/user.service";
+import {LoadingService} from "./loading.service";
+import {getWindow} from "../../app.component";
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +30,7 @@ export class AuthService {
     }
   ];
 
-  constructor() {
+  constructor(private loadingService: LoadingService) {
   }
 
   public authenticate(email: string, password: string): Observable<AuthenticateResponseModel> {
@@ -61,6 +63,15 @@ export class AuthService {
 
   public isLoggedIn() {
     return (localStorage?.getItem('isLogin') === 'true') && localStorage?.getItem('user');
+  }
+
+  public logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('isLogin');
+    this.loadingService.isLoading.next(true);
+    if (getWindow()) {
+      window.location.href = '/';
+    }
   }
 }
 

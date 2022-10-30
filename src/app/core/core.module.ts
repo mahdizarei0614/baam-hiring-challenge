@@ -16,13 +16,14 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {ApiUrlInterceptor} from "./interceptors/api-url.interceptor";
 import {ApiKeyInterceptor} from "./interceptors/api-key.interceptor";
 import {AuthService} from "./services/auth.service";
-import {SiteLayoutComponent} from './components/site-layout/site-layout.component';
+import {LogoutDialogComponent, SiteLayoutComponent} from './components/site-layout/site-layout.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {RouterModule} from "@angular/router";
 import {LoadingInterceptor} from "./interceptors/loading.interceptor";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     NavbarComponent,
     ThemeSwitchComponent,
     LoadingComponent,
-    SiteLayoutComponent
+    SiteLayoutComponent,
+    LogoutDialogComponent
   ],
   exports: [
     LangSwitchComponent,
@@ -38,20 +40,21 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     LoadingComponent,
     ThemeSwitchComponent
   ],
-    imports: [
-        CommonModule,
-        I18nModule,
-        MatSelectModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatIconModule,
-        MatSlideToggleModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatListModule,
-        RouterModule,
-        MatTooltipModule
-    ],
+  imports: [
+    CommonModule,
+    I18nModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatSlideToggleModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    RouterModule,
+    MatTooltipModule,
+    MatDialogModule
+  ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true},

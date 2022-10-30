@@ -28,5 +28,9 @@
   "spiderMan": "مرد عنکبوتی",
   "ironMan": "مرد آهنی",
   "blackPanther": "پلنگ سیاه",
-  "hulk": "هالک"
+  "hulk": "هالک",
+  "logout": "خروج",
+  "logoutPhrase": "آیا می‌خواهید خارج شوید؟",
+  "cancelButton": "لغو",
+  "confirmButton": "تایید"
 }

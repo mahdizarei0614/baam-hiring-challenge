@@ -16,10 +16,14 @@ export class AppComponent {
 
   constructor(public themeService: ThemeService) {
     AppComponent.calcIsDesktop();
-    const selectedTheme = localStorage.getItem('favoriteTheme') || ThemeEnum.Marvel;
-    if (selectedTheme !== ThemeEnum.Marvel) {
-      this.themeService.changeTheme(selectedTheme);
+    const favoriteTheme = localStorage.getItem('favoriteTheme') as string;
+    let selectedTheme;
+    if (favoriteTheme !== 'null') {
+      selectedTheme = favoriteTheme;
+    } else {
+      selectedTheme = ThemeEnum.Marvel;
     }
+    this.themeService.changeTheme(selectedTheme);
   }
 
   private static calcIsDesktop(event: any = null) {
@@ -35,6 +39,7 @@ export function getWindow() {
 export type MenuItemModel = {
   label: string;
   link?: string[];
+  icon?: string;
   action?: any;
 }
 
