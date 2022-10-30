@@ -13,6 +13,7 @@ export class LangSwitchComponent {
   constructor(public translate: TranslateService) {
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
       currentLang.next(event.lang);
+      localStorage.setItem('lang', event.lang);
     });
   }
 
