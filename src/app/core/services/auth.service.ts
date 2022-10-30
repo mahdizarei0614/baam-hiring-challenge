@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {IUserModel} from "../../shared/services/user.service";
 import {LoadingService} from "./loading.service";
 import {getWindow} from "../../app.component";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -70,7 +71,11 @@ export class AuthService {
     localStorage.removeItem('isLogin');
     this.loadingService.isLoading.next(true);
     if (getWindow()) {
-      window.location.href = '/';
+      if (environment.githubDeploy) {
+        window.location.href = '/baam-hiring-challenge/';
+      } else {
+        window.location.href = '/';
+      }
     }
   }
 }
