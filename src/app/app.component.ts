@@ -1,5 +1,5 @@
 import {Component, HostListener} from '@angular/core';
-import {ThemeService} from "./core/services/theme.service";
+import {ThemeEnum, ThemeService} from "./core/services/theme.service";
 import {BehaviorSubject} from "rxjs";
 
 @Component({
@@ -16,6 +16,10 @@ export class AppComponent {
 
   constructor(public themeService: ThemeService) {
     AppComponent.calcIsDesktop();
+    const selectedTheme = localStorage.getItem('favoriteTheme') || ThemeEnum.Marvel;
+    if (selectedTheme !== ThemeEnum.Marvel) {
+      this.themeService.changeTheme(selectedTheme);
+    }
   }
 
   private static calcIsDesktop(event: any = null) {
@@ -30,7 +34,8 @@ export function getWindow() {
 
 export type MenuItemModel = {
   label: string;
-  link: string[];
+  link?: string[];
+  action?: any;
 }
 
 export let isDesktop: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);

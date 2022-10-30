@@ -1,0 +1,23 @@
+<mat-toolbar color="accent" class="sticky top-0 z-10 max-h-[56px] min-h-[56px]">
+  <mat-toolbar-row>
+    <button mat-icon-button aria-label="Back button" [matTooltip]="'backButtonTooltip' | translate" (click)="$location.back()">
+      <mat-icon>
+        {{currentLangRef.value === 'fa' ? 'keyboard_arrow_right' : 'keyboard_arrow_left'}}
+      </mat-icon>
+    </button>
+    <span>{{'changeTheme' | translate}}</span>
+    <div class="grow"></div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="p-4">
+  <label id="radio-group-label">{{'themeSelectionPhrase' | translate}}</label>
+  <mat-radio-group
+    aria-labelledby="radio-group-label"
+    class="flex flex-col items-start my-4"
+    (change)="changeTheme(selectedTheme)"
+    [(ngModel)]="selectedTheme">
+    <mat-radio-button class="my-2" *ngFor="let theme of themes" [value]="theme.themeKey">
+      {{theme.translateKey | translate}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

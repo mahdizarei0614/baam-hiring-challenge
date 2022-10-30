@@ -17,11 +17,19 @@
         <mat-list-option *ngFor="let item of menuItems"
                          [selected]="isSidenavItemSelected(item)"
                          [value]="item.label"
-                         (click)="sidenavItemClicked(item, sidenav)">
+                         (click)="sidenavItemLink(item, sidenav)">
           {{item.label | translate}}
         </mat-list-option>
       </mat-selection-list>
       <div class="grow"></div>
+      <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let item of systemItems"
+                         [selected]="isSidenavItemSelected(item)"
+                         [value]="item.label"
+                         (click)="item.link ? sidenavItemLink(item, sidenav) : sidenavItemAction(item, sidenav)">
+          {{item.label | translate}}
+        </mat-list-option>
+      </mat-selection-list>
       <div *ngIf="!isDesktopRef.value" class="flex items-center justify-between p-4">
         <app-theme-switch class="mr-4"></app-theme-switch>
         <app-lang-switch></app-lang-switch>

@@ -20,5 +20,13 @@
   "menuTooltip": "منو",
   "searchTooltip": "جستجو",
   "cancelSearchTooltip": "لغو جستجو",
-  "backButtonTooltip": "بازگشت"
+  "backButtonTooltip": "بازگشت",
+  "changeTheme": "تغییر تم",
+  "themeSelectionPhrase": "تم دلخواهتان را انتخاب کنید:",
+  "marvel": "مارول",
+  "captainAmerica": "کاپیتان آمریکا",
+  "spiderMan": "مرد عنکبوتی",
+  "ironMan": "مرد آهنی",
+  "blackPanther": "پلنگ سیاه",
+  "hulk": "هالک"
 }

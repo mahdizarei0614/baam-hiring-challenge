@@ -12,11 +12,17 @@ export class SiteLayoutComponent {
   public menuItems: MenuItemModel[] = [
     {
       label: 'charactersList',
-      link: ['', 'landing', 'characters']
+      link: ['', 'marvel', 'characters']
     },
     {
       label: 'comics',
-      link: ['', 'landing', 'comics']
+      link: ['', 'marvel', 'comics']
+    }
+  ]
+  public systemItems: MenuItemModel[] = [
+    {
+      label: 'changeTheme',
+      link: ['', 'settings', 'change-theme']
     }
   ]
   public isDesktopRef = isDesktop;
@@ -33,15 +39,22 @@ export class SiteLayoutComponent {
     return 'over';
   }
 
-  public sidenavItemClicked(item: MenuItemModel, sidenavRef: any) {
-    this.router.navigate(item.link);
+  public sidenavItemLink(item: MenuItemModel, sidenavRef: any) {
+    this.router.navigate(item.link as string[]);
     if (!isDesktop.value) {
       sidenavRef.close();
     }
   }
 
+  public sidenavItemAction(item: MenuItemModel, sidenavRef: any) {
+    if (!isDesktop.value) {
+      sidenavRef.close();
+    }
+    item.action();
+  }
+
   public isSidenavItemSelected(item: MenuItemModel) {
-    return this.router.url === item.link.join('/');
+    return this.router.url === (item.link as string[]).join('/');
   }
 
 }

@@ -6,7 +6,7 @@ import {AuthGuard} from "./core/guards/auth.guard";
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'landing',
+    redirectTo: 'marvel',
     pathMatch: 'full'
   },
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule)
   },
   {
-    path: 'landing',
+    path: 'marvel',
     component: SiteLayoutComponent,
     children: [
       {
@@ -22,6 +22,18 @@ const routes: Routes = [
         canLoad: [AuthGuard],
         canActivateChild: [AuthGuard],
         loadChildren: () => import('./modules/marvel/marvel.module').then((m) => m.MarvelModule)
+      }
+    ]
+  },
+  {
+    path: '',
+    component: SiteLayoutComponent,
+    children: [
+      {
+        path: 'settings',
+        canLoad: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        loadChildren: () => import('./modules/settings/settings.module').then((m) => m.SettingsModule)
       }
     ]
   }
