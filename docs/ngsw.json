@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1667004972700,
+  "timestamp": 1667097993599,
   "index": "https://mahdizarei0614.github.io/baam-hiring-challenge/index.html",
   "assetGroups": [
     {
@@ -11,16 +11,17 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://mahdizarei0614.github.io/baam-hiring-challenge/207.20f9adddc916fc3e.js",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/126.5f9d6572be567cd1.js",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/207.1561aa62d70cb7d7.js",
         "https://mahdizarei0614.github.io/baam-hiring-challenge/352.2152d5dd38540dd0.js",
-        "https://mahdizarei0614.github.io/baam-hiring-challenge/496.ec81526012efa016.js",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/496.e02df597caf3cbb1.js",
         "https://mahdizarei0614.github.io/baam-hiring-challenge/favicon.ico",
         "https://mahdizarei0614.github.io/baam-hiring-challenge/index.html",
-        "https://mahdizarei0614.github.io/baam-hiring-challenge/main.c107ffaef532958d.js",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/main.1d1a3abf9ff83850.js",
         "https://mahdizarei0614.github.io/baam-hiring-challenge/manifest.webmanifest",
         "https://mahdizarei0614.github.io/baam-hiring-challenge/polyfills.a355b3abd9a0a32a.js",
-        "https://mahdizarei0614.github.io/baam-hiring-challenge/runtime.8504116393de7f4b.js",
-        "https://mahdizarei0614.github.io/baam-hiring-challenge/styles.6d94b5f94019956b.css"
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/runtime.488799459e0be6ef.js",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/styles.805799070f32ac1f.css"
       ],
       "patterns": []
     },
@@ -47,6 +48,18 @@
         "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/icons/icon-96x96.png",
         "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/images/marvel-illustration.jpg",
         "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/images/no-results.png",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/captain-light-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/captain-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/hulk-light-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/hulk-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/iron-light-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/iron-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/marvel-light-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/marvel-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/panther-light-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/panther-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/spider-light-theme.css",
+        "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/spider-theme.css",
         "https://mahdizarei0614.github.io/baam-hiring-challenge/marvel-illustration.bb46c2b47bb08291.jpg"
       ],
       "patterns": []
@@ -54,13 +67,14 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://mahdizarei0614.github.io/baam-hiring-challenge/207.20f9adddc916fc3e.js": "769420b68397ddb32b85a1530bbfbcbfc00d1b82",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/126.5f9d6572be567cd1.js": "0a087ed3a1cee86f6306c1ab266a7d788c5f22db",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/207.1561aa62d70cb7d7.js": "a12de4a8e4c6c75954dd396468ac14eb6a4410c0",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/352.2152d5dd38540dd0.js": "dae27ad8717dbd5b856cb4aaf662fdbd8c121717",
-    "https://mahdizarei0614.github.io/baam-hiring-challenge/496.ec81526012efa016.js": "a2383f8cc0ccb38f903e034e79bc9db63099c722",
-    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/i18n/en.json": "3d92a1826f2d578e9e577fdb8e1978cfed14890e",
-    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/i18n/fa.json": "b91723cb99008df76cde3814350d5e7945748dcf",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/496.e02df597caf3cbb1.js": "5e982c6957f4ede54fd2c9ad6fb4915cae8b353c",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/i18n/en.json": "3368833c85cd9696fdae3cb4a5d460813f0ad113",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/i18n/fa.json": "6bd821e2bb6bbb31872fc8227fe81c0514ae8cef",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/icons/core/loading.svg": "89289f99b21d49514cdddaff8a70f82a04cd6845",
-    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/icons/core/marvel-logo.svg": "c0c43d90379c80ba1e2ba8f826bc807e14bac0e0",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/icons/core/marvel-logo.svg": "e9db0de4d66cfcd307a6e71d55a779e8fbe447c0",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/icons/icon-128x128.png": "98fa458cdeac9fd65dcaf938aed3be02c241b176",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/icons/icon-144x144.png": "2cb14c32af8f930aa70ff2029ceefa2fda8234f4",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/icons/icon-152x152.png": "c46dc1296084a59e6cbf3b35a512d95be1c3744a",
@@ -72,14 +86,26 @@
     "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/icons/icon-96x96.png": "c3b0c91ec34f0481f89778ee978aa045803a33ff",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/images/marvel-illustration.jpg": "931f4bf6876aeaabaff7e78e4bbe0b89faed1e76",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/images/no-results.png": "866319591dae49cf5ac63140041c4372073781e6",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/captain-light-theme.css": "8e416a2d0db6778e15e883cd709ea0a2629555bf",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/captain-theme.css": "1998e57dafdd31b08a1ee961d5ca17f2d1b2d545",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/hulk-light-theme.css": "364d59869c71f97c4359e97855d2accd950d2f82",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/hulk-theme.css": "4ac4a3cace277596507705996fd92b404d3ddfe8",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/iron-light-theme.css": "2e39ba9d6aa42d32d839542aff9e8968cd103b40",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/iron-theme.css": "74e1c47e9fae9a65a41b74ffbacd46f3141ec6cd",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/marvel-light-theme.css": "c86167a1d70cc68333733f50e867fa4d172b6af1",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/marvel-theme.css": "ccb456fddb06db76dfb02da180bbadd292c2f02c",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/panther-light-theme.css": "7d53ae9b99cafe75e133072ea2149bd32db4d178",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/panther-theme.css": "2ccc23f9cea4bef190f02d9d7bd3a34e80f463a1",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/spider-light-theme.css": "d838760a5cad3ada0f8a775d9968197140fb2ab0",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/assets/theme/spider-theme.css": "6bcb1531cdfcbb207014948487e6083340b73b48",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/favicon.ico": "e6b2486e4942afa5c2b9e94a0b6d0f508ac3c609",
-    "https://mahdizarei0614.github.io/baam-hiring-challenge/index.html": "7d2f5bf5b7ba2bc5b9d2ef72aaf828687670866b",
-    "https://mahdizarei0614.github.io/baam-hiring-challenge/main.c107ffaef532958d.js": "1bf0502e804633eb86b56056a0e4dadd3adc215b",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/index.html": "b9852cacac1dee7ebf2fa0af88946ad922022296",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/main.1d1a3abf9ff83850.js": "90205136cf4f20ee58193a8540ac5afca7393605",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/manifest.webmanifest": "4db8ca6cfa7710fe7b9429d4b8472f5b9de8c962",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/marvel-illustration.bb46c2b47bb08291.jpg": "931f4bf6876aeaabaff7e78e4bbe0b89faed1e76",
     "https://mahdizarei0614.github.io/baam-hiring-challenge/polyfills.a355b3abd9a0a32a.js": "581e210f5c7fe5819db5306592fdbf7e735bd525",
-    "https://mahdizarei0614.github.io/baam-hiring-challenge/runtime.8504116393de7f4b.js": "53fc6eefaf91e6e687f966d94f02c958b416f4f3",
-    "https://mahdizarei0614.github.io/baam-hiring-challenge/styles.6d94b5f94019956b.css": "e94db275bafcb3151f8a26befca1109208a7182e"
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/runtime.488799459e0be6ef.js": "1067c742cbdfd64176e30d54ad8e33c210f9ce6e",
+    "https://mahdizarei0614.github.io/baam-hiring-challenge/styles.805799070f32ac1f.css": "50e8af9ed279b8307fd40b6ec1e4fd03153a3671"
   },
   "navigationUrls": [
     {

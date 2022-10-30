@@ -20,5 +20,17 @@
   "menuTooltip": "Menu",
   "searchTooltip": "Search",
   "cancelSearchTooltip": "Cancel Search",
-  "backButtonTooltip": "Back"
+  "backButtonTooltip": "Back",
+  "changeTheme": "Change Theme",
+  "themeSelectionPhrase": "Pick your favorite theme:",
+  "marvel": "Marvel",
+  "captainAmerica": "Captain America",
+  "spiderMan": "Spider-Man",
+  "ironMan": "Iron-Man",
+  "blackPanther": "Black Panther",
+  "hulk": "Hulk",
+  "logout": "Logout",
+  "logoutPhrase": "Do you want to logout?",
+  "cancelButton": "Cancel",
+  "confirmButton": "Confirm"
 }
